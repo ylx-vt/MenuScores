@@ -1,30 +1,5 @@
-# Security Policy
+# Security reporting
 
-## Supported Versions
+This repository is a locally customized fork of [MenuScores](https://github.com/daniyalmaster693/MenuScores). It does not currently document a fork-specific security contact, release support policy or response-time commitment. Do not assume the upstream maintainer supports local modifications.
 
-MenuScores follows a rolling release mode. Security fixes are included in new releases.
-
-| Version | Supported          |
-| ------- | ------------------ |
-| [Latest release](https://github.com/daniyalmaster693/MenuScores/releases/latest)   | :white_check_mark: |
-| Older Releases   | :x:                |
-
-## Reporting a Vulnerability
-
-**Please do not open a public GitHub issue or pull request for security vulnerabilities.**
-
-**[Open a security advisory](https://github.com/daniyalmaster693/MenuScores/security/advisories/new)**
-
-Please include:
-
-- A description of the vulnerability and its impact.
-- Steps to reproduce (a proof-of-concept if you have one).
-- Affected version, macOS version, and any relevant configuration.
-
-## What to Expect
-
-- **Acknowledgement** within 5 business days.
-- An assessment, and if confirmed a timeline for a fix.
-- Credit in the release notes once a fix ships, unless you ask to stay anonymous.
-
-Please give a reasonable window to release a fix before any public disclosure.
+For an issue confirmed to affect the original project, consult the [upstream security policy](https://github.com/daniyalmaster693/MenuScores/security/policy). Avoid posting secrets or private user data in public issues.

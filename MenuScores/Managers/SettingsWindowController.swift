@@ -31,7 +31,7 @@ class SettingsWindowController: NSWindowController {
     private func setupWindow() {
         guard let window = window else { return }
         
-        window.title = "MenuScores Settings"
+        window.title = "MenuScores 设置"
         window.titlebarAppearsTransparent = false
         window.titleVisibility = .visible
         window.toolbarStyle = .unified
@@ -56,6 +56,11 @@ class SettingsWindowController: NSWindowController {
             self?.window?.orderFrontRegardless()
             self?.window?.makeKeyAndOrderFront(nil)
         }
+    }
+
+    func showReminderSettings() {
+        window?.contentView = NSHostingView(rootView: SettingsView(initialTab: "Reminders"))
+        showWindow()
     }
     
     override func close() {

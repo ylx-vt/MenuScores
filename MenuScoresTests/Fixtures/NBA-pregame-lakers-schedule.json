@@ -1,0 +1,563 @@
+{
+  "requestedSeason": {
+    "year": 2027,
+    "type": 2,
+    "name": "Regular Season",
+    "displayName": "2026-27"
+  },
+  "team": {
+    "id": "13",
+    "abbreviation": "LAL",
+    "displayName": "Los Angeles Lakers",
+    "color": "552583",
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png"
+  },
+  "events": [
+    {
+      "id": "401909092",
+      "date": "2026-10-22T02:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 0.0,
+            "displayClock": "0.0",
+            "period": 4,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "id": "13",
+              "homeAway": "home",
+              "team": {
+                "id": "13",
+                "abbreviation": "LAL",
+                "displayName": "Los Angeles Lakers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 127.0,
+                "displayValue": "127"
+              }
+            },
+            {
+              "id": "9",
+              "homeAway": "away",
+              "team": {
+                "id": "9",
+                "abbreviation": "GS",
+                "displayName": "Golden State Warriors",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 105.0,
+                "displayValue": "105"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401909851",
+      "date": "2026-10-24T02:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 0.0,
+            "displayClock": "0.0",
+            "period": 4,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "id": "13",
+              "homeAway": "home",
+              "team": {
+                "id": "13",
+                "abbreviation": "LAL",
+                "displayName": "Los Angeles Lakers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 125.0,
+                "displayValue": "125"
+              }
+            },
+            {
+              "id": "12",
+              "homeAway": "away",
+              "team": {
+                "id": "12",
+                "abbreviation": "LAC",
+                "displayName": "LA Clippers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lac.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 117.0,
+                "displayValue": "117"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401909861",
+      "date": "2026-10-25T21:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 720.0,
+            "displayClock": "12:00",
+            "period": 4,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "id": "26",
+              "homeAway": "home",
+              "team": {
+                "id": "26",
+                "abbreviation": "UTAH",
+                "displayName": "Utah Jazz",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/utah.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 123.0,
+                "displayValue": "123"
+              }
+            },
+            {
+              "id": "13",
+              "homeAway": "away",
+              "team": {
+                "id": "13",
+                "abbreviation": "LAL",
+                "displayName": "Los Angeles Lakers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 132.0,
+                "displayValue": "132"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401909880",
+      "date": "2026-10-28T03:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 720.0,
+            "displayClock": "12:00",
+            "period": 4,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "id": "13",
+              "homeAway": "home",
+              "team": {
+                "id": "13",
+                "abbreviation": "LAL",
+                "displayName": "Los Angeles Lakers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 129.0,
+                "displayValue": "129"
+              }
+            },
+            {
+              "id": "22",
+              "homeAway": "away",
+              "team": {
+                "id": "22",
+                "abbreviation": "POR",
+                "displayName": "Portland Trail Blazers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/por.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/por.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 136.0,
+                "displayValue": "136"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401909892",
+      "date": "2026-10-29T02:30Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 0.0,
+            "displayClock": "0.0",
+            "period": 4,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "id": "12",
+              "homeAway": "home",
+              "team": {
+                "id": "12",
+                "abbreviation": "LAC",
+                "displayName": "LA Clippers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lac.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 87.0,
+                "displayValue": "87"
+              }
+            },
+            {
+              "id": "13",
+              "homeAway": "away",
+              "team": {
+                "id": "13",
+                "abbreviation": "LAL",
+                "displayName": "Los Angeles Lakers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 103.0,
+                "displayValue": "103"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401909285",
+      "date": "2026-10-31T02:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 0.0,
+            "displayClock": "0.0",
+            "period": 0,
+            "type": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Fri, October 30th at 10:00 PM EDT",
+              "shortDetail": "10/30 - 10:00 PM EDT"
+            }
+          },
+          "competitors": [
+            {
+              "id": "9",
+              "homeAway": "home",
+              "team": {
+                "id": "9",
+                "abbreviation": "GS",
+                "displayName": "Golden State Warriors",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": null
+            },
+            {
+              "id": "13",
+              "homeAway": "away",
+              "team": {
+                "id": "13",
+                "abbreviation": "LAL",
+                "displayName": "Los Angeles Lakers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

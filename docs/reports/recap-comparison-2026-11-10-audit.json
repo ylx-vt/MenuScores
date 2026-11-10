@@ -1,0 +1,322 @@
+{
+  "day": "20261110",
+  "automatedWorkflow": "有界阶段选材、Terra起稿、Sol对照原始事实终审",
+  "deliveryReview": "两名独立内容代理按冻结原始比赛数据复核，最小事实措辞修订可追溯",
+  "verification": {
+    "verifiedAt": "2026-11-10T08:08:38.645255+00:00",
+    "oldCacheFilesByteIdentical": 201,
+    "frozenSourcesAndOldArticlesUnchanged": 8,
+    "newTwoPassFinalArticles": 8,
+    "factualCopyeditedArticles": 2,
+    "rows": [
+      {
+        "gameID": "401909956",
+        "cacheKey": "9d5d440474682dc5cc1cce459f4c279481487b909f7244b025f90526628f8daa",
+        "responseID": "resp_0e67d124b1d2d924016af2ce225ff487d2bd548b41e4065c6f",
+        "finalTextSHA256": "c8ac7b3e3f5756b8e2093dc9086181da81877ffe3587030f8d5ae70249038d48",
+        "independentFactualCopyedit": false
+      },
+      {
+        "gameID": "401909957",
+        "cacheKey": "890ce1803252b531d4d8657854896a4c431b604e49d73ed4aa5053327bb4493c",
+        "responseID": "resp_0585cbc998721b09016af2ce40fa2487d2bdf64e08b37b1d71",
+        "finalTextSHA256": "517ede3765b2fa594b0e48eab7393e9a47ed6edd641ad0bb6377c78d745d90b9",
+        "independentFactualCopyedit": false
+      },
+      {
+        "gameID": "401909959",
+        "cacheKey": "e0bbdd207815e435ba4bc6200d264ff81f69e7010efa94662f1b56568ad78bc6",
+        "responseID": "resp_06cbd5584576963a016af2ce5bc05487d29f2fce750c9b9944",
+        "finalTextSHA256": "5f2221cd64b52739fe68007347a9bd563463103857360fc692c9a2c69f23729e",
+        "independentFactualCopyedit": false
+      },
+      {
+        "gameID": "401909953",
+        "cacheKey": "70dfd45a1f981847c3894c7c38002918b4e720a4c75c82b8f2b2944814e0a0f2",
+        "responseID": "resp_0fa50eb5a4580c6f016af2ce7e828c87d2a8c21f3f6cf02ea5",
+        "finalTextSHA256": "6887c3d6c1c88925ea2870d4780ede1bb54fb0fbd13a197c5d5d8631fd98cb61",
+        "independentFactualCopyedit": true
+      },
+      {
+        "gameID": "401909958",
+        "cacheKey": "9a8219a7fb576cef5525d598807a320a370eab7297551bb4e94370459964f598",
+        "responseID": "resp_00d5f59801d2ee73016af2ce9a158887d28f157f1f50cd8f43",
+        "finalTextSHA256": "f0206a2f1d4b905bbcb0398ead2ccb5a698706275d713c8d1a59de8d6ed1227c",
+        "independentFactualCopyedit": true
+      },
+      {
+        "gameID": "401909955",
+        "cacheKey": "99f70bab0824f872e8ee3d0888a05a69b21f0890aae36356bf68ca93e86efe3d",
+        "responseID": "resp_0f0747f041cb2d3d016af2ceb7c4d887d2b8001f0f18bcea13",
+        "finalTextSHA256": "e9b8fcd5237e8d5de3756722b2ab7413372f72318a607a5bd3f14adfa0f5988f",
+        "independentFactualCopyedit": false
+      },
+      {
+        "gameID": "401909952",
+        "cacheKey": "f96ebbf0d0a6b3d07aa3226434d5a99174a91c25d1d4a6ea2fb0726614bb8fc1",
+        "responseID": "resp_0f2ad7f8dfae9a67016af2ced70d2487d29048bc06664c9c90",
+        "finalTextSHA256": "92ad5a38a1ca1688911dcec08f00e2f0eafee46df59b6c86a91bd562e6396980",
+        "independentFactualCopyedit": false
+      },
+      {
+        "gameID": "401909954",
+        "cacheKey": "737104473c16b296fec9d954950f6d5a8f8542d54fd60c8f4cab5c80ef956e7d",
+        "responseID": "resp_0faf18e2cc2dffb5016af2cef37b5887d2847d1927444b9b24",
+        "finalTextSHA256": "8460d7d95ae1291b7fdafb226659f8e4bf7a3defbce0ad07903e8d803b5eb78d",
+        "independentFactualCopyedit": false
+      }
+    ]
+  },
+  "independentReviews": [
+    {
+      "day": "20261110",
+      "scope": "湖人、灰熊、独行侠、火箭最终分析型新闻稿独立终审",
+      "complete": true,
+      "blockingIssuesRemaining": 0,
+      "verification": "逐句对照同目录最终facts和冻结原始summary，核实关键时钟、比分、球员贡献、出手/罚球口径及负面评价范围。",
+      "rows": [
+        {
+          "gameID": "401909952",
+          "state": "reviewed",
+          "issues": [],
+          "comment": "上一轮主要列东契奇的全场高分与逐节变化，本轮说明首节13比0怎样由抢断和传球发动、次节怎样由凯斯勒与塞克斯顿合力拉开。收官又具体交代威廉姆斯抢断、东契奇得分助攻和塞布尔回应三分，并把亚历山大-沃克的3投0中限制在最后五分钟，正反贡献更清楚。",
+          "verificationNotes": [
+            "全场双方数据、首节13比0、次节37比27至51比32及凯斯勒9分/塞克斯顿5分3助攻均已核。",
+            "凯斯勒4投全中与1罚1中、亚历山大-沃克最后五分钟3投0中均有完整出手依据，并已逐条核原始事件。",
+            "收官两次湖人出手未中、东契奇2:27得分、威廉姆斯2:22抢断、拉拉维亚1:51扣篮及塞布尔52.9秒三分均准确。"
+          ],
+          "styleNotes": [],
+          "reviewedResponseID": "resp_0f2ad7f8dfae9a67016af2ced70d2487d29048bc06664c9c90",
+          "reviewedTextSHA256": "92ad5a38a1ca1688911dcec08f00e2f0eafee46df59b6c86a91bd562e6396980"
+        },
+        {
+          "gameID": "401909955",
+          "state": "reviewed",
+          "issues": [],
+          "comment": "本轮从“杰尔姆27分带队获胜”进一步讲清楚布泽尔串联、格兰特抢断及三分、亨德里克斯盖帽如何让灰熊在两分球后重新拉开。猛龙巴特尔三分失准和珀尔特尔失误也落到同一阶段，随后仍如实写出灰熊自己的收官失误，没有把赢球写成一路顺利。",
+          "verificationNotes": [
+            "次节/三节/末节比分均准确；第三节12比0的杰尔姆5分、布泽尔4分和埃迪封盖巴雷特上篮均可核。",
+            "末节9:05至5:42的15比5中各球员得分、助攻、抢断及巴特尔三分3投0中、珀尔特尔2失误均准确。",
+            "格兰特与亨德里克斯的替补身份已核。末五巴雷特4投1中、埃迪两次失误及布泽尔2:44失误均准确。",
+            "前批次的“没有再让优势缩水”已不在本稿；本稿只保留一条末节主窗口，没有将重叠攻势累计。"
+          ],
+          "styleNotes": [],
+          "reviewedResponseID": "resp_0f0747f041cb2d3d016af2ceb7c4d887d2b8001f0f18bcea13",
+          "reviewedTextSHA256": "e9b8fcd5237e8d5de3756722b2ab7413372f72318a607a5bd3f14adfa0f5988f"
+        },
+        {
+          "gameID": "401909956",
+          "state": "reviewed",
+          "issues": [],
+          "comment": "上一轮突出弗拉格43分和欧文35分，本轮分开交代欧文如何带动末节反超、弗拉格如何顶住内史密斯的末段追击。华盛顿罚球失手和马丁最后抢断都成为有明确时刻的胜负信息，欧文两次失误、内姆布哈德较早的助攻也被保留，评价更有分寸。",
+          "verificationNotes": [
+            "次节18比2中西亚卡姆13分、昆顿·杰克逊5分1助攻1抢断，末节16比6中欧文8分和弗拉格5分均准确。",
+            "欧文两次运动战出手命中及3罚全中有完整依据；两次失误原文均为传球失误。华盛顿7:43封盖内姆布哈德上篮准确。",
+            "最后84秒内史密斯9分与两次追至1分、弗拉格62秒和26.3秒跳投、华盛顿4秒两罚不中、0.9秒马丁抢断均准确。",
+            "未把有缺口的完整末五分钟数据用于零命中指责，也未把两次个人得手写成没有依据的连续命中。"
+          ],
+          "styleNotes": [],
+          "reviewedResponseID": "resp_0e67d124b1d2d924016af2ce225ff487d2bd548b41e4065c6f",
+          "reviewedTextSHA256": "c8ac7b3e3f5756b8e2093dc9086181da81877ffe3587030f8d5ae70249038d48"
+        },
+        {
+          "gameID": "401909957",
+          "state": "reviewed",
+          "issues": [],
+          "comment": "本轮把申京在末节四分差时得分、串联，以及范弗里特和史密斯的三分串成了重新拉开比分的过程，也补出了次节替补伊森的防守作用。杜兰特最后五分钟三次失误与一次盖帽、约基奇末段全中拿下6分被放在各自阶段里，既能说明风险，也没有因为输赢而强行给球员定性。",
+          "verificationNotes": [
+            "首节32比24、次节11比0至43比24、第三节60平后的11比2及三节77比68均准确。",
+            "6:29被写作比分状态而非进球发生时间；该段申京2投全中4分2助攻有完整依据，并与原始两次进球一致。",
+            "布劳恩4:42两罚不中时比分96比90、杜兰特末五3失误/两次被抢断/盖帽戈登、申京2:06助攻范弗里特均准确。",
+            "约基奇末五2次运动战出手和2次罚球全中6分有完整依据，并与原始事件逐条一致；稿件没有累加重叠窗口中申京的贡献。"
+          ],
+          "styleNotes": [],
+          "reviewedResponseID": "resp_0585cbc998721b09016af2ce40fa2487d2bdf64e08b37b1d71",
+          "reviewedTextSHA256": "517ede3765b2fa594b0e48eab7393e9a47ed6edd641ad0bb6377c78d745d90b9"
+        }
+      ]
+    },
+    {
+      "day": "20261110",
+      "scope": "胜负分析最终稿后4场独立语义核对",
+      "complete": true,
+      "reviewedGames": 4,
+      "pendingGameIDs": [],
+      "blockingIssuesRemaining": 0,
+      "rows": [
+        {
+          "gameID": "401909959",
+          "status": "reviewed",
+          "issues": [],
+          "comment": "上一版以库里和波齐姆斯基各25分概括，这版分清波齐姆斯基、伦德伯格次节先拉开与库里第三节再拿16分，解释了优势如何形成。霍福德零得分却有3助攻2帽1抢断，以及费尔斯4失误，都被放回具体时段，得分榜之外的贡献与追分受阻更清楚。",
+          "verifiedFacts": [
+            "波齐姆斯基Q2 6投4中10分、伦德伯格Q2三分3投3中9分完整；奎恩Q2 8分已由严格局部得分归因核准。",
+            "库里Q3 4投3中8罚8中16分、霍福德Q3 0分3助攻2帽1断、费尔斯4TO均完整。",
+            "库里Q3 3:10被换下时101–61，仅描述明确换人，未断言之后一定未再上。",
+            "鹈鹕全场FG29–80，约36%与原表一致。"
+          ],
+          "styleNotes": [
+            "“进攻效率”可改为更具体的“投篮表现”；少量比分、得分在导语与结尾重复。"
+          ],
+          "textSHA256": "5f2221cd64b52739fe68007347a9bd563463103857360fc692c9a2c69f23729e",
+          "responseID": "resp_06cbd5584576963a016af2ce5bc05487d29f2fce750c9b9944",
+          "reviewedTitle": "波齐姆斯基、伦德伯格先拉开，库里三节定局"
+        },
+        {
+          "gameID": "401909953",
+          "status": "reviewed",
+          "issues": [],
+          "comment": "上一轮重阿伦三分和里德两双，这版把萨隆在次节17比5拉分段独得11分、詹姆斯和安德森第三节各6分写成真正拉开比分的线索。骑士两次被断、海佐尼亚3投全失及末节追到8分后的补篮、防守收尾，也让先打花、后收紧的过程更完整。",
+          "verifiedFacts": [
+            "Q2 8:31–4:58 17–5中萨隆3投3中、3罚3中11分2三分1抢断均完整。",
+            "莫布利两次传球失误分别被阿伦、萨隆抢断，206/221；Q3海佐尼亚429/435/439均未中。",
+            "Q3 6:45–3:50 16–0，詹姆斯/安德森各6分、卡尔克布伦纳4分合齐16分，完整比分链支持连续得分波。",
+            "最后五分钟里德FG0–3、FT1–2、1TO完整；卡尔补篮631、抢断640、盖帽657与描述吻合。"
+          ],
+          "styleNotes": [
+            "末节收尾既写里德低迷和失误，也写其助攻，没有机械只夸或只批。"
+          ],
+          "resolvedIssues": [
+            {
+              "type": "window_scope_overreach",
+              "severity": 2,
+              "quote": "萨隆次节独得11分拉开局面",
+              "evidence": "context.2的11分只属于Q2 8:31–4:58窗口；raw Q2还有9:12 event401909953195的一记三分，因此萨隆第二节实际14分。正文的局部17–5与11分正确，导语未写局部限定，易被读成整节11分。",
+              "suggestion": "改为“萨隆在次节拉分段独得11分...”或同义明确局部范围；不要把窗口统计升级成整节总量。",
+              "resolution": "独立事实审阅后最小措辞修订，局部窗口范围已明确，原文和原始模型回执保留。",
+              "edits": [
+                {
+                  "field": "lead",
+                  "original": "萨隆次节独得11分拉开局面",
+                  "replacement": "萨隆在次节拉分段独得11分拉开局面",
+                  "reason": "11分属于次节8:31至4:58的拉分段，不能称整节得分。"
+                }
+              ]
+            }
+          ],
+          "textSHA256": "6887c3d6c1c88925ea2870d4780ede1bb54fb0fbd13a197c5d5d8631fd98cb61",
+          "responseID": "resp_0fa50eb5a4580c6f016af2ce7e828c87d2a8c21f3f6cf02ea5",
+          "reviewedTitle": "萨隆次节领衔拉分，黄蜂靠第三节16比0胜骑士"
+        },
+        {
+          "gameID": "401909958",
+          "status": "reviewed",
+          "issues": [],
+          "comment": "上一轮主要用文班40分8帽和逐节优势概括，这版找到次节拉分段的多次封盖，并把太阳第三节追到10分后的哈珀、文班和福克斯回应写清楚。还补出马刺领先31分时换下三名首发的明确时点，让大胜如何形成、何时转入收官都有具体依据。",
+          "verifiedFacts": [
+            "Q2 9:58–6:32 38–27到50–31为12–4，文班4分及四次明确盖帽记录正确。",
+            "Q3太阳8–0由46–64追至54–64；随后9:42–6:14马刺14–5，哈珀6分1助攻、文班5分、福克斯3分，科内特6:31盖Brooks在该窗口内。",
+            "Q4 9:13马刺104–73，Fox/Castle/Wembanyama的明确换下与原始事件539/540/541一致。",
+            "已删除初稿Brooks错误4投1中，不再用不准出手数评价球员。"
+          ],
+          "styleNotes": [
+            "不把主队一度追到10分的反扑抹去，整体叙事比笼统逐节拉开更清楚。"
+          ],
+          "resolvedIssues": [
+            {
+              "type": "window_scope_overreach",
+              "severity": 2,
+              "quote": "文班亚马次节四次封盖助球队拉开比分",
+              "evidence": "正文9:58–6:32窗口有4次明确盖帽（192/203/213/216），但第二节还记录了328(0:24.6盖Brooks)及336(10:06盖Dunn的迟到记录)，整节不是4次。该窗口blocks也未声明为完整总数。标题“四帽筑优势”宜同样明确局部或去数。",
+              "suggestion": "标题改“文班封盖筑优势，哈珀接力助马刺胜太阳”；导语改“文班亚马次节拉分段多次封盖助球队拉开比分...”或明确“一段四次盖帽记录”，避免整节4帽之意。",
+              "resolution": "独立事实审阅后最小措辞修订，局部窗口范围已明确，原文和原始模型回执保留。",
+              "edits": [
+                {
+                  "field": "title",
+                  "original": "文班亚马四帽筑优势",
+                  "replacement": "文班封盖筑优势",
+                  "reason": "四次盖帽是局部记录，标题不将其表述为整节总量。"
+                },
+                {
+                  "field": "lead",
+                  "original": "文班亚马次节四次封盖助球队拉开比分",
+                  "replacement": "文班亚马次节拉分段多次封盖助球队拉开比分",
+                  "reason": "次节局部窗口有四次明确封盖，整节另有记录，不混为整节计数。"
+                }
+              ]
+            }
+          ],
+          "textSHA256": "f0206a2f1d4b905bbcb0398ead2ccb5a698706275d713c8d1a59de8d6ed1227c",
+          "responseID": "resp_00d5f59801d2ee73016af2ce9a158887d28f157f1f50cd8f43",
+          "reviewedTitle": "文班封盖筑优势，哈珀接力助马刺胜太阳"
+        },
+        {
+          "gameID": "401909954",
+          "status": "reviewed",
+          "issues": [],
+          "comment": "上一轮围绕戴维斯44分空砍和活塞逐节优势，这版把詹金斯第三节拉分段9分、助攻罗宾逊三分及里德封盖写成胜负转折。还写出戴维斯与特雷·杨末节落后时被换下的具体比分，以及汤普森的盖帽和助攻，区分了此前拉开与最后收尾。",
+          "verifiedFacts": [
+            "坎宁安Q2开局5分2助攻、科林斯2投2中4分已由完整窗口核准，首节乔治3:51命中追平球为event110。",
+            "詹金斯Q3 4:33–1:14 4投3中、2罚2中9分及1助攻完整；87–78至99–82为12–4；Reed封Dybantsa为548。",
+            "戴维斯Q4 4:44、101–117换下为678，特雷杨Q4 3:33、104–119换下为692；仅叙述明确换出，没有把无再入记录当已确认持续缺席。",
+            "最后五分钟奇才10分、活塞5分，确追回5分；詹金斯4分3板、汤普森盖帽与助攻、最终111–122均准确。"
+          ],
+          "styleNotes": [
+            "末节叙述没有被当作唯一决胜段，也没有把最后五分钟误称严格clutch。"
+          ],
+          "textSHA256": "8460d7d95ae1291b7fdafb226659f8e4bf7a3defbce0ad07903e8d803b5eb78d",
+          "responseID": "resp_0faf18e2cc2dffb5016af2cef37b5887d2847d1927444b9b24",
+          "reviewedTitle": "詹金斯第三节独揽拉分段9分，活塞击退奇才"
+        }
+      ],
+      "note": "四场最终稿已核；本次只复核953导语及958标题/导语三处最小措辞、文本重建与任务缓存一致性，未扩大审阅范围。",
+      "copyeditAuditFile": "fact-copyedits.json"
+    }
+  ],
+  "factualCopyedits": {
+    "source": "独立事实审稿后最小范围措辞修订，未修改原始模型回执或新增API请求",
+    "rows": [
+      {
+        "gameID": "401909953",
+        "responseID": "resp_0fa50eb5a4580c6f016af2ce7e828c87d2a8c21f3f6cf02ea5",
+        "cacheKey": "70dfd45a1f981847c3894c7c38002918b4e720a4c75c82b8f2b2944814e0a0f2",
+        "originalArticleSHA256": "86591276552d54e10d1d754db6a7ea66fbceabe2d9f046a3f1ff907eda72ee70",
+        "reviewedTextSHA256": "6887c3d6c1c88925ea2870d4780ede1bb54fb0fbd13a197c5d5d8631fd98cb61",
+        "edits": [
+          {
+            "field": "lead",
+            "original": "萨隆次节独得11分拉开局面",
+            "replacement": "萨隆在次节拉分段独得11分拉开局面",
+            "reason": "11分属于次节8:31至4:58的拉分段，不能称整节得分。"
+          }
+        ]
+      },
+      {
+        "gameID": "401909958",
+        "responseID": "resp_00d5f59801d2ee73016af2ce9a158887d28f157f1f50cd8f43",
+        "cacheKey": "9a8219a7fb576cef5525d598807a320a370eab7297551bb4e94370459964f598",
+        "originalArticleSHA256": "bc10560924f681e0a861a8b1d332fedd0a512f5927a46c8c51bfcba493c4e8ab",
+        "reviewedTextSHA256": "f0206a2f1d4b905bbcb0398ead2ccb5a698706275d713c8d1a59de8d6ed1227c",
+        "edits": [
+          {
+            "field": "title",
+            "original": "文班亚马四帽筑优势",
+            "replacement": "文班封盖筑优势",
+            "reason": "四次盖帽是局部记录，标题不将其表述为整节总量。"
+          },
+          {
+            "field": "lead",
+            "original": "文班亚马次节四次封盖助球队拉开比分",
+            "replacement": "文班亚马次节拉分段多次封盖助球队拉开比分",
+            "reason": "次节局部窗口有四次明确封盖，整节另有记录，不混为整节计数。"
+          }
+        ]
+      }
+    ]
+  },
+  "cost": {
+    "analyticalDevelopmentEstimatedUSD": 1.02983175,
+    "analyticalDevelopmentGenerationRequests": 31,
+    "latestEightArticlesEstimatedUSD": 0.54231575,
+    "daySpentOrReservedUSDAtRestore": 1.29369975,
+    "basis": "返回usage与模型公开单价估算，非账户账单"
+  },
+  "validation": {
+    "fullTestsPassed": 262,
+    "subsequentFocusedTestsPassed": 61,
+    "lastContextTestsPassed": 10,
+    "releaseBuildSucceeded": true,
+    "formalAppReplaced": false,
+    "formalAppRestored": true
+  }
+}

@@ -3,6 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>NSUserNotificationUsageDescription</key>
-	<string>Used to notify you about game start and completion updates</string>
+	<string>用于发送比赛提醒和已完成的赛后总结</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>zh-Hans</string>
+		<string>en</string>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>zh-Hans</string>
+	<key>MenuScoresRestorationBaseline</key>
+	<string>2.4.3 (16)</string>
+	<key>MenuScoresRestorationBuild</key>
+	<false/>
+	<key>MenuScoresTerraArticlesVersion</key>
+	<integer>4</integer>
 </dict>
 </plist>

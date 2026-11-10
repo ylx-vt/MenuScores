@@ -101,8 +101,17 @@ public final class DynamicNotchInfo: ObservableObject, DynamicNotchControllable 
         self.compactTrailing = compactTrailing
     }
 
+    public func expand() async {
+        guard let screen = NSScreen.screens.first else { return }
+        await expand(on: screen)
+    }
+    public func compact() async {
+        guard let screen = NSScreen.screens.first else { return }
+        await compact(on: screen)
+    }
+
     public func expand(
-        on screen: NSScreen = NSScreen.screens[0]
+        on screen: NSScreen
     ) async {
         await internalDynamicNotch._expand(
             on: screen,
@@ -111,7 +120,7 @@ public final class DynamicNotchInfo: ObservableObject, DynamicNotchControllable 
     }
 
     public func compact(
-        on screen: NSScreen = NSScreen.screens[0]
+        on screen: NSScreen
     ) async {
         await internalDynamicNotch._compact(
             on: screen,

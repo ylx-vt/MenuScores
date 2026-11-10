@@ -1,0 +1,886 @@
+{
+  "header": {
+    "id": "401909285",
+    "season": {
+      "year": 2027,
+      "current": true,
+      "type": 2
+    },
+    "competitions": [
+      {
+        "date": "2026-10-31T02:00Z",
+        "status": {
+          "type": {
+            "id": "1",
+            "name": "STATUS_SCHEDULED",
+            "state": "pre",
+            "completed": false,
+            "description": "Scheduled",
+            "detail": "Fri, October 30th at 10:00 PM EDT",
+            "shortDetail": "10/30 - 10:00 PM EDT"
+          }
+        },
+        "competitors": [
+          {
+            "homeAway": "home",
+            "team": {
+              "id": "9",
+              "abbreviation": "GS",
+              "displayName": "Golden State Warriors",
+              "color": "fdb927",
+              "logos": [
+                {
+                  "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                  "rel": [
+                    "full",
+                    "default"
+                  ]
+                },
+                {
+                  "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                  "rel": [
+                    "full",
+                    "dark"
+                  ]
+                }
+              ]
+            },
+            "record": [
+              {
+                "type": "total",
+                "summary": "2-3",
+                "displayValue": "2-3"
+              },
+              {
+                "type": "home",
+                "summary": "0-1",
+                "displayValue": "0-1"
+              },
+              {
+                "type": "vsconf",
+                "summary": "2-3",
+                "displayValue": "2-3"
+              }
+            ]
+          },
+          {
+            "homeAway": "away",
+            "team": {
+              "id": "13",
+              "abbreviation": "LAL",
+              "displayName": "Los Angeles Lakers",
+              "color": "552583",
+              "logos": [
+                {
+                  "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                  "rel": [
+                    "full",
+                    "default"
+                  ]
+                },
+                {
+                  "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                  "rel": [
+                    "full",
+                    "dark"
+                  ]
+                }
+              ]
+            },
+            "record": [
+              {
+                "type": "total",
+                "summary": "4-1",
+                "displayValue": "4-1"
+              },
+              {
+                "type": "road",
+                "summary": "2-0",
+                "displayValue": "2-0"
+              },
+              {
+                "type": "vsconf",
+                "summary": "4-1",
+                "displayValue": "4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "boxscore": {
+    "teams": [
+      {
+        "team": {
+          "id": "13",
+          "abbreviation": "LAL",
+          "displayName": "Los Angeles Lakers",
+          "color": "552583",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png"
+        },
+        "homeAway": "away",
+        "statistics": [
+          {
+            "name": "avgPointsAgainst",
+            "displayValue": "113.6"
+          },
+          {
+            "name": "avgPoints",
+            "displayValue": "123.2"
+          },
+          {
+            "name": "avgRebounds",
+            "displayValue": "38.0"
+          }
+        ]
+      },
+      {
+        "team": {
+          "id": "9",
+          "abbreviation": "GS",
+          "displayName": "Golden State Warriors",
+          "color": "fdb927",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png"
+        },
+        "homeAway": "home",
+        "statistics": [
+          {
+            "name": "avgPointsAgainst",
+            "displayValue": "119.4"
+          },
+          {
+            "name": "avgPoints",
+            "displayValue": "117.6"
+          },
+          {
+            "name": "avgRebounds",
+            "displayValue": "43.8"
+          }
+        ]
+      }
+    ]
+  },
+  "lastFiveGames": [
+    {
+      "team": {
+        "id": "9",
+        "displayName": "Golden State Warriors",
+        "abbreviation": "GS",
+        "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+        "logos": [
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+            "rel": [
+              "full",
+              "default"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+            "rel": [
+              "full",
+              "dark"
+            ]
+          }
+        ]
+      },
+      "events": [
+        {
+          "id": "401909092",
+          "gameDate": "2026-10-22T02:00Z",
+          "homeTeamId": "13",
+          "awayTeamId": "9",
+          "homeTeamScore": "127",
+          "awayTeamScore": "105",
+          "gameResult": "L",
+          "opponent": {
+            "id": "13",
+            "displayName": "Los Angeles Lakers",
+            "abbreviation": "LAL",
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+            "logos": [
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                "rel": [
+                  "full",
+                  "default"
+                ]
+              },
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                "rel": [
+                  "full",
+                  "dark"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "401909850",
+          "gameDate": "2026-10-24T02:00Z",
+          "homeTeamId": "9",
+          "awayTeamId": "29",
+          "homeTeamScore": "108",
+          "awayTeamScore": "111",
+          "gameResult": "L",
+          "opponent": {
+            "id": "29",
+            "displayName": "Memphis Grizzlies",
+            "abbreviation": "MEM",
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png",
+            "logos": [
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png",
+                "rel": [
+                  "full",
+                  "default"
+                ]
+              },
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/mem.png",
+                "rel": [
+                  "full",
+                  "dark"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "401909860",
+          "gameDate": "2026-10-25T02:00Z",
+          "homeTeamId": "21",
+          "awayTeamId": "9",
+          "homeTeamScore": "131",
+          "awayTeamScore": "122",
+          "gameResult": "L",
+          "opponent": {
+            "id": "21",
+            "displayName": "Phoenix Suns",
+            "abbreviation": "PHX",
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png",
+            "logos": [
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png",
+                "rel": [
+                  "full",
+                  "default"
+                ]
+              },
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/phx.png",
+                "rel": [
+                  "full",
+                  "dark"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "401909876",
+          "gameDate": "2026-10-27T02:00Z",
+          "homeTeamId": "7",
+          "awayTeamId": "9",
+          "homeTeamScore": "114",
+          "awayTeamScore": "134",
+          "gameResult": "W",
+          "opponent": {
+            "id": "7",
+            "displayName": "Denver Nuggets",
+            "abbreviation": "DEN",
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/den.png",
+            "logos": [
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500/den.png",
+                "rel": [
+                  "full",
+                  "default"
+                ]
+              },
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/den.png",
+                "rel": [
+                  "full",
+                  "dark"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "401909888",
+          "gameDate": "2026-10-29T00:00Z",
+          "homeTeamId": "16",
+          "awayTeamId": "9",
+          "homeTeamScore": "114",
+          "awayTeamScore": "119",
+          "gameResult": "W",
+          "opponent": {
+            "id": "16",
+            "displayName": "Minnesota Timberwolves",
+            "abbreviation": "MIN",
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/min.png",
+            "logos": [
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500/min.png",
+                "rel": [
+                  "full",
+                  "default"
+                ]
+              },
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/min.png",
+                "rel": [
+                  "full",
+                  "dark"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "team": {
+        "id": "13",
+        "displayName": "Los Angeles Lakers",
+        "abbreviation": "LAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+        "logos": [
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+            "rel": [
+              "full",
+              "default"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+            "rel": [
+              "full",
+              "dark"
+            ]
+          }
+        ]
+      },
+      "events": [
+        {
+          "id": "401909092",
+          "gameDate": "2026-10-22T02:00Z",
+          "homeTeamId": "13",
+          "awayTeamId": "9",
+          "homeTeamScore": "127",
+          "awayTeamScore": "105",
+          "gameResult": "W",
+          "opponent": {
+            "id": "9",
+            "displayName": "Golden State Warriors",
+            "abbreviation": "GS",
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+            "logos": [
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                "rel": [
+                  "full",
+                  "default"
+                ]
+              },
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                "rel": [
+                  "full",
+                  "dark"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "401909851",
+          "gameDate": "2026-10-24T02:00Z",
+          "homeTeamId": "13",
+          "awayTeamId": "12",
+          "homeTeamScore": "125",
+          "awayTeamScore": "117",
+          "gameResult": "W",
+          "opponent": {
+            "id": "12",
+            "displayName": "LA Clippers",
+            "abbreviation": "LAC",
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png",
+            "logos": [
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png",
+                "rel": [
+                  "full",
+                  "default"
+                ]
+              },
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lac.png",
+                "rel": [
+                  "full",
+                  "dark"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "401909861",
+          "gameDate": "2026-10-25T21:00Z",
+          "homeTeamId": "26",
+          "awayTeamId": "13",
+          "homeTeamScore": "123",
+          "awayTeamScore": "132",
+          "gameResult": "W",
+          "opponent": {
+            "id": "26",
+            "displayName": "Utah Jazz",
+            "abbreviation": "UTAH",
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png",
+            "logos": [
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png",
+                "rel": [
+                  "full",
+                  "default"
+                ]
+              },
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/utah.png",
+                "rel": [
+                  "full",
+                  "dark"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "401909880",
+          "gameDate": "2026-10-28T03:00Z",
+          "homeTeamId": "13",
+          "awayTeamId": "22",
+          "homeTeamScore": "129",
+          "awayTeamScore": "136",
+          "gameResult": "L",
+          "opponent": {
+            "id": "22",
+            "displayName": "Portland Trail Blazers",
+            "abbreviation": "POR",
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/por.png",
+            "logos": [
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500/por.png",
+                "rel": [
+                  "full",
+                  "default"
+                ]
+              },
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/por.png",
+                "rel": [
+                  "full",
+                  "dark"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "401909892",
+          "gameDate": "2026-10-29T02:30Z",
+          "homeTeamId": "12",
+          "awayTeamId": "13",
+          "homeTeamScore": "87",
+          "awayTeamScore": "103",
+          "gameResult": "W",
+          "opponent": {
+            "id": "12",
+            "displayName": "LA Clippers",
+            "abbreviation": "LAC",
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png",
+            "logos": [
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png",
+                "rel": [
+                  "full",
+                  "default"
+                ]
+              },
+              {
+                "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lac.png",
+                "rel": [
+                  "full",
+                  "dark"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "leaders": [
+    {
+      "team": {
+        "id": "9",
+        "displayName": "Golden State Warriors",
+        "abbreviation": "GS",
+        "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+        "logos": [
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+            "rel": [
+              "full",
+              "default"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+            "rel": [
+              "full",
+              "dark"
+            ]
+          }
+        ]
+      },
+      "leaders": [
+        {
+          "name": "pointsPerGame",
+          "leaders": [
+            {
+              "displayValue": "28.8",
+              "athlete": {
+                "id": "3975",
+                "displayName": "Stephen Curry"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": {
+        "id": "13",
+        "displayName": "Los Angeles Lakers",
+        "abbreviation": "LAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+        "logos": [
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+            "rel": [
+              "full",
+              "default"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+            "rel": [
+              "full",
+              "dark"
+            ]
+          }
+        ]
+      },
+      "leaders": [
+        {
+          "name": "pointsPerGame",
+          "leaders": [
+            {
+              "displayValue": "36.0",
+              "athlete": {
+                "id": "3945274",
+                "displayName": "Luka Doncic"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "seasonseries": [
+    {
+      "title": "Regular Season Series",
+      "seriesLabel": "Regular Season",
+      "events": [
+        {
+          "id": "401909092",
+          "date": "2026-10-22T02:00:00Z",
+          "status": "post",
+          "statusType": {
+            "id": "3",
+            "name": "STATUS_FINAL",
+            "state": "post",
+            "completed": true,
+            "description": "Final",
+            "detail": "Final",
+            "shortDetail": "Final"
+          },
+          "competitors": [
+            {
+              "team": {
+                "id": "13",
+                "displayName": "Los Angeles Lakers",
+                "abbreviation": "LAL",
+                "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": "127",
+              "homeAway": "home"
+            },
+            {
+              "team": {
+                "id": "9",
+                "displayName": "Golden State Warriors",
+                "abbreviation": "GS",
+                "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": "105",
+              "homeAway": "away"
+            }
+          ]
+        },
+        {
+          "id": "401909285",
+          "date": "2026-10-31T02:00:00Z",
+          "status": "pre",
+          "statusType": {
+            "id": "1",
+            "name": "STATUS_SCHEDULED",
+            "state": "pre",
+            "completed": false,
+            "description": "Scheduled",
+            "detail": "Fri, October 30th at 10:00 PM EDT",
+            "shortDetail": "10/30 - 10:00 PM EDT"
+          },
+          "competitors": [
+            {
+              "team": {
+                "id": "9",
+                "displayName": "Golden State Warriors",
+                "abbreviation": "GS",
+                "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": "0",
+              "homeAway": "home"
+            },
+            {
+              "team": {
+                "id": "13",
+                "displayName": "Los Angeles Lakers",
+                "abbreviation": "LAL",
+                "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": "0",
+              "homeAway": "away"
+            }
+          ]
+        },
+        {
+          "id": "401910388",
+          "date": "2027-01-22T03:00:00Z",
+          "status": "pre",
+          "statusType": {
+            "id": "1",
+            "name": "STATUS_SCHEDULED",
+            "state": "pre",
+            "completed": false,
+            "description": "Scheduled",
+            "detail": "Thu, January 21st at 10:00 PM EST",
+            "shortDetail": "1/21 - 10:00 PM EST"
+          },
+          "competitors": [
+            {
+              "team": {
+                "id": "9",
+                "displayName": "Golden State Warriors",
+                "abbreviation": "GS",
+                "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": "0",
+              "homeAway": "home"
+            },
+            {
+              "team": {
+                "id": "13",
+                "displayName": "Los Angeles Lakers",
+                "abbreviation": "LAL",
+                "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": "0",
+              "homeAway": "away"
+            }
+          ]
+        },
+        {
+          "id": "401910733",
+          "date": "2027-03-15T02:00:00Z",
+          "status": "pre",
+          "statusType": {
+            "id": "1",
+            "name": "STATUS_SCHEDULED",
+            "state": "pre",
+            "completed": false,
+            "description": "Scheduled",
+            "detail": "Sun, March 14th at 10:00 PM EDT",
+            "shortDetail": "3/14 - 10:00 PM EDT"
+          },
+          "competitors": [
+            {
+              "team": {
+                "id": "13",
+                "displayName": "Los Angeles Lakers",
+                "abbreviation": "LAL",
+                "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": "0",
+              "homeAway": "home"
+            },
+            {
+              "team": {
+                "id": "9",
+                "displayName": "Golden State Warriors",
+                "abbreviation": "GS",
+                "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": "0",
+              "homeAway": "away"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

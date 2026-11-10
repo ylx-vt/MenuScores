@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0D3DB0632DD8D2E200B70D39 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 0D3DB0622DD8D2E200B70D39 /* LaunchAtLogin */; };
 		0D47E9B32FFC142E006315E3 /* TourKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0D47E9B22FFC142E006315E3 /* TourKit */; };
-		0D6885442E464D1F00D00CC2 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 0D6885432E464D1F00D00CC2 /* KeyboardShortcuts */; };
 		0D8AF8D2303C812200EF0829 /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0D8AF8D1303C812200EF0829 /* DynamicNotchKit */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +73,6 @@
 			files = (
 				0D8AF8D2303C812200EF0829 /* DynamicNotchKit in Frameworks */,
 				0D47E9B32FFC142E006315E3 /* TourKit in Frameworks */,
-				0D6885442E464D1F00D00CC2 /* KeyboardShortcuts in Frameworks */,
 				0D3DB0632DD8D2E200B70D39 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +135,6 @@
 			name = MenuScores;
 			packageProductDependencies = (
 				0D3DB0622DD8D2E200B70D39 /* LaunchAtLogin */,
-				0D6885432E464D1F00D00CC2 /* KeyboardShortcuts */,
 				0D47E9B22FFC142E006315E3 /* TourKit */,
 				0D8AF8D1303C812200EF0829 /* DynamicNotchKit */,
 			);
@@ -225,7 +222,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				0D3DB0612DD8D2E200B70D39 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
-				0D6885422E464D1F00D00CC2 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 				0D47E9B12FFC142E006315E3 /* XCRemoteSwiftPackageReference "TourKit" */,
 				0D8AF8D0303C812200EF0829 /* XCLocalSwiftPackageReference "DynamicNotchKit" */,
 			);
@@ -437,7 +433,7 @@
 				CODE_SIGN_ENTITLEMENTS = MenuScores/MenuScores.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 40;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MenuScores/Preview Content\"";
 				ENABLE_APP_SANDBOX = YES;
@@ -456,7 +452,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.4.0;
+				MARKETING_VERSION = 2.5.14;
 				PRODUCT_BUNDLE_IDENTIFIER = daniyalmaster.MenuScores;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -472,7 +468,7 @@
 				CODE_SIGN_ENTITLEMENTS = MenuScores/MenuScores.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 40;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MenuScores/Preview Content\"";
 				ENABLE_APP_SANDBOX = YES;
@@ -491,7 +487,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 2.4.0;
+				MARKETING_VERSION = 2.5.14;
 				PRODUCT_BUNDLE_IDENTIFIER = daniyalmaster.MenuScores;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -620,24 +616,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
 			requirement = {
-				branch = main;
-				kind = branch;
+				revision = a04ec1c363be3627734f6dad757d82f5d4fa8fcc;
+				kind = revision;
 			};
 		};
 		0D47E9B12FFC142E006315E3 /* XCRemoteSwiftPackageReference "TourKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rampatra/TourKit.git";
 			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		0D6885422E464D1F00D00CC2 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.3.0;
+				revision = 1a2aa23e38befe67f04f563bb9d324394cab442c;
+				kind = revision;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -652,11 +640,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0D47E9B12FFC142E006315E3 /* XCRemoteSwiftPackageReference "TourKit" */;
 			productName = TourKit;
-		};
-		0D6885432E464D1F00D00CC2 /* KeyboardShortcuts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0D6885422E464D1F00D00CC2 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
-			productName = KeyboardShortcuts;
 		};
 		0D8AF8D1303C812200EF0829 /* DynamicNotchKit */ = {
 			isa = XCSwiftPackageProductDependency;

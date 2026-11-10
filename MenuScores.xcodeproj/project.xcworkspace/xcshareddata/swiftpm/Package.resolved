@@ -1,15 +1,6 @@
 {
-  "originHash" : "d5668adb4979c56137b6df3991bb8d72ed6ef6d2098609fb3f1e8d9e492132b7",
+  "originHash" : "ef64dc95d8af48e6fb66a0deaf32d0e4ff9eadf02b6950e88ceee0c97752f3ec",
   "pins" : [
-    {
-      "identity" : "keyboardshortcuts",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sindresorhus/KeyboardShortcuts",
-      "state" : {
-        "revision" : "1aef85578fdd4f9eaeeb8d53b7b4fc31bf08fe27",
-        "version" : "2.4.0"
-      }
-    },
     {
       "identity" : "launchatlogin-modern",
       "kind" : "remoteSourceControl",
@@ -17,15 +8,6 @@
       "state" : {
         "branch" : "main",
         "revision" : "a04ec1c363be3627734f6dad757d82f5d4fa8fcc"
-      }
-    },
-    {
-      "identity" : "skylightwindow",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Lakr233/SkyLightWindow",
-      "state" : {
-        "revision" : "b7bd99f62a0673a99bed4bfd31098ca1dcdd10eb",
-        "version" : "1.0.0"
       }
     },
     {

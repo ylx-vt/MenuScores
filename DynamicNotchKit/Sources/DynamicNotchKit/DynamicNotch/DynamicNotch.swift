@@ -86,6 +86,13 @@ public final class DynamicNotch<Expanded, CompactLeading, CompactTrailing>: Obse
 
     private var closePanelTask: Task<(), Never>? // Used to close the panel after hiding completes
 
+    // A presentation dependency lets hosted tests exercise real hover timing
+    // without displaying another window over the user's active scoreboard.
+    var orderWindowFront: (NSWindow) -> Void = { $0.orderFrontRegardless() }
+    private var disposed = false
+    public var compactsOnHoverExit = true
+    private var screenObserver: Task<Void, Never>?
+
     private var hoverWorkItem: DispatchWorkItem?
     private var debounceWorkItem: DispatchWorkItem?
 
@@ -99,6 +106,7 @@ public final class DynamicNotch<Expanded, CompactLeading, CompactTrailing>: Obse
     public init(
         hoverBehavior: DynamicNotchHoverBehavior = .all,
         style: DynamicNotchStyle = .auto,
+        observeScreens: Bool = true,
         @ViewBuilder expanded: @escaping () -> Expanded,
         @ViewBuilder compactLeading: @escaping () -> CompactLeading = { EmptyView() },
         @ViewBuilder compactTrailing: @escaping () -> CompactTrailing = { EmptyView() }
@@ -110,7 +118,7 @@ public final class DynamicNotch<Expanded, CompactLeading, CompactTrailing>: Obse
         self.compactLeadingContent = compactLeading()
         self.compactTrailingContent = compactTrailing()
 
-        observeScreenParameters()
+        if observeScreens { observeScreenParameters() }
     }
 
     /// Creates a new DynamicNotch with custom content and style. Does not support the compact appearance.
@@ -134,6 +142,11 @@ public final class DynamicNotch<Expanded, CompactLeading, CompactTrailing>: Obse
         self.disableCompactTrailing = true
     }
 
+    deinit {
+        screenObserver?.cancel()
+        closePanelTask?.cancel()
+    }
+
     /// Resolves the effective opening animation (custom override or style default).
     var effectiveOpeningAnimation: Animation { transitionConfiguration.openingAnimation ?? style.openingAnimation }
 
@@ -145,10 +158,10 @@ public final class DynamicNotch<Expanded, CompactLeading, CompactTrailing>: Obse
 
     /// Observes screen parameters changes and re-initializes the window if necessary.
     private func observeScreenParameters() {
-        Task {
+        screenObserver = Task { [weak self] in
             let sequence = NotificationCenter.default.notifications(named: NSApplication.didChangeScreenParametersNotification)
             for await _ in sequence.map(\.name) {
-                guard self.state != .hidden else { continue }
+                guard let self, !Task.isCancelled, self.state != .hidden else { continue }
 
                 if let screen = NSScreen.screens.first {
                     initializeWindow(screen: screen)
@@ -160,13 +173,14 @@ public final class DynamicNotch<Expanded, CompactLeading, CompactTrailing>: Obse
     /// Updates the hover state of the DynamicNotch, and processes necessary hover behavior.
     /// - Parameter hovering: a boolean indicating whether the mouse is hovering over the notch.
     func updateHoverState(_ hovering: Bool) {
+        // Repeated tracking notifications must not cancel the transition that
+        // the first notification scheduled. Ignore them before touching timers.
+        guard !disposed, state != .hidden, hovering != isHovering else { return }
+
         hoverWorkItem?.cancel()
         hoverWorkItem = nil
         debounceWorkItem?.cancel()
         debounceWorkItem = nil
-
-        // Ensure that we only update when the state changes
-        guard state != .hidden, hovering != isHovering else { return }
 
         isHovering = hovering
 
@@ -175,7 +189,7 @@ public final class DynamicNotch<Expanded, CompactLeading, CompactTrailing>: Obse
             performer.perform(.alignment, performanceTime: .default)
         }
 
-        let currentScreen = windowController?.window?.screen ?? NSScreen.screens[0]
+        guard let currentScreen = windowController?.window?.screen ?? NSScreen.screens.first else { return }
 
         if hovering {
             let task = DispatchWorkItem { [weak self] in
@@ -188,7 +202,7 @@ public final class DynamicNotch<Expanded, CompactLeading, CompactTrailing>: Obse
 
             hoverWorkItem = task
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: task)
-        } else {
+        } else if compactsOnHoverExit {
             let debounce = DispatchWorkItem { [weak self] in
                 Task { @MainActor in
                     await self?.compact(on: currentScreen)
@@ -203,12 +217,25 @@ public final class DynamicNotch<Expanded, CompactLeading, CompactTrailing>: Obse
 // MARK: - Public
 
 extension DynamicNotch {
-    public func expand(on screen: NSScreen = NSScreen.screens[0]) async {
+    public func expand() async {
+        guard let screen = NSScreen.screens.first else { return }
+        await expand(on: screen)
+    }
+    public func compact() async {
+        guard let screen = NSScreen.screens.first else { return }
+        await compact(on: screen)
+    }
+    public func updateScreen() async {
+        guard let screen = NSScreen.screens.first else { return }
+        await updateScreen(on: screen)
+    }
+
+    public func expand(on screen: NSScreen) async {
         await _expand(on: screen, skipHide: transitionConfiguration.skipIntermediateHides)
     }
 
-    func _expand(on screen: NSScreen = NSScreen.screens[0], skipHide: Bool) async {
-        guard state != .expanded else { return }
+    func _expand(on screen: NSScreen, skipHide: Bool) async {
+        guard !disposed, state != .expanded else { return }
 
         closePanelTask?.cancel()
 
@@ -238,6 +265,7 @@ extension DynamicNotch {
                     try? await Task.sleep(for: .seconds(0.25))
                 }
 
+                guard !self.disposed else { return }
                 withAnimation(effectiveConversionAnimation) {
                     self.state = .expanded
                 }
@@ -249,17 +277,12 @@ extension DynamicNotch {
         try? await Task.sleep(for: .seconds(0.4))
     }
 
-    public func compact(on screen: NSScreen = NSScreen.screens[0]) async {
+    public func compact(on screen: NSScreen) async {
         await _compact(on: screen, skipHide: transitionConfiguration.skipIntermediateHides)
     }
 
-    func _compact(on screen: NSScreen = NSScreen.screens[0], skipHide: Bool) async {
-        guard state != .compact else { return }
-
-        if effectiveStyle(for: screen).isFloating {
-            await hide()
-            return
-        }
+    func _compact(on screen: NSScreen, skipHide: Bool) async {
+        guard !disposed, state != .compact else { return }
 
         if disableCompactLeading, disableCompactTrailing {
             await hide()
@@ -294,6 +317,7 @@ extension DynamicNotch {
                     guard self.state == .hidden else { return }
                 }
 
+                guard !self.disposed else { return }
                 withAnimation(effectiveConversionAnimation) {
                     self.state = .compact
                 }
@@ -363,7 +387,7 @@ extension DynamicNotch {
         }
     }
 
-    func _updateScreen(on screen: NSScreen = NSScreen.screens[0]) async {
+    func _updateScreen(on screen: NSScreen) async {
         guard state != .hidden else { return }
 
         let needsNewWindow = windowController?.window?.screen != screen
@@ -374,7 +398,20 @@ extension DynamicNotch {
         }
     }
 
-    public func updateScreen(on screen: NSScreen = NSScreen.screens[0]) async {
+    /// Release window, timers and observers immediately, even while hovered.
+    @MainActor
+    public func dispose() {
+        disposed = true
+        screenObserver?.cancel(); screenObserver = nil
+        closePanelTask?.cancel(); closePanelTask = nil
+        hoverWorkItem?.cancel(); hoverWorkItem = nil
+        debounceWorkItem?.cancel(); debounceWorkItem = nil
+        state = .hidden; isHovering = false
+        windowController?.window?.contentView = nil
+        deinitializeWindow()
+    }
+
+    public func updateScreen(on screen: NSScreen) async {
         await _updateScreen(on: screen)
     }
 }
@@ -411,6 +448,7 @@ private extension DynamicNotch {
             backing: .buffered,
             defer: true
         )
+        panel.configureForHardwareNotch(screen.hasNotch && style.isNotch)
         panel.contentView = view
 
         let size = NSSize(
@@ -433,7 +471,7 @@ private extension DynamicNotch {
         panel.layoutIfNeeded()
 
         if orderFront {
-            panel.orderFrontRegardless()
+            orderWindowFront(panel)
         }
 
         windowController = .init(window: panel)
@@ -445,7 +483,7 @@ private extension DynamicNotch {
 
         // Start invisible to hide any initial frame glitches
         window.alphaValue = 0
-        window.orderFrontRegardless()
+        orderWindowFront(window)
 
         // Fade in smoothly
         NSAnimationContext.runAnimationGroup { context in

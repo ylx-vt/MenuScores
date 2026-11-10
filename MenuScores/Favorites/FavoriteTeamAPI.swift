@@ -100,21 +100,6 @@ enum FavoriteTeams {
         return info.sport == "racing" || info.sport == "golf"
     }
 
-    static func leagueAsTeam(for leagueKey: String) -> TeamInfo {
-        let info = mappings[leagueKey]
-        let displayName = info?.displayName ?? leagueKey
-        let logo = fallbackLogoForLeague(leagueKey)
-
-        return TeamInfo(
-            id: "league-\(leagueKey.lowercased())",
-            color: nil,
-            alternateColor: nil,
-            displayName: displayName,
-            abbreviation: leagueKey,
-            logos: [TeamLogo(href: logo, width: 80, height: 80)]
-        )
-    }
-
     static func fallbackLogoForLeague(_ leagueKey: String) -> String {
         let sport = (FavoriteTeams.mappings[leagueKey]?.sport ?? "hockey")
         let league = (FavoriteTeams.mappings[leagueKey]?.league ?? "NHL")
@@ -132,76 +117,4 @@ enum FavoriteTeams {
         }
     }
 
-    static var supportedLeagueKeys: [String] {
-        let defaults = UserDefaults.standard
-
-        return mappings.keys.filter { league in
-            switch league {
-            case "NHL": return defaults.bool(forKey: "enableNHL")
-            case "HNCAAM": return defaults.bool(forKey: "enableHNCAAM")
-            case "HNCAAF": return defaults.bool(forKey: "enableHNCAAF")
-            case "NBA": return defaults.bool(forKey: "enableNBA")
-            case "WNBA": return defaults.bool(forKey: "enableWNBA")
-            case "NCAAM": return defaults.bool(forKey: "enableNCAAM")
-            case "NCAAF": return defaults.bool(forKey: "enableNCAAF")
-            case "GNBA": return defaults.bool(forKey: "enableGNBA")
-            case "NFL": return defaults.bool(forKey: "enableNFL")
-            case "AFL": return defaults.bool(forKey: "enableAFL")
-            case "FNCAA": return defaults.bool(forKey: "enableFNCAA")
-            case "MLB": return defaults.bool(forKey: "enableMLB")
-            case "BNCAA": return defaults.bool(forKey: "enableBNCAA")
-            case "SNCAA": return defaults.bool(forKey: "enableSNCAA")
-            case "F1": return defaults.bool(forKey: "enableF1")
-            case "NC": return defaults.bool(forKey: "enableNC")
-            case "NCS": return defaults.bool(forKey: "enableNCS")
-            case "NCT": return defaults.bool(forKey: "enableNCT")
-            case "IRL": return defaults.bool(forKey: "enableIRL")
-            case "PGA": return defaults.bool(forKey: "enablePGA")
-            case "LPGA": return defaults.bool(forKey: "enableLPGA")
-            case "MLS": return defaults.bool(forKey: "enableMLS")
-            case "NWSL": return defaults.bool(forKey: "enableNWSL")
-            case "UEFA": return defaults.bool(forKey: "enableUEFA")
-            case "UEFAN": return defaults.bool(forKey: "enableUEFAN")
-            case "EUEFA": return defaults.bool(forKey: "enableEUEFA")
-            case "WUEFA": return defaults.bool(forKey: "enableWUEFA")
-            case "EPL": return defaults.bool(forKey: "enableEPL")
-            case "WEPL": return defaults.bool(forKey: "enableWEPL")
-            case "ESP": return defaults.bool(forKey: "enableESP")
-            case "GER": return defaults.bool(forKey: "enableGER")
-            case "ITA": return defaults.bool(forKey: "enableITA")
-            case "FRA": return defaults.bool(forKey: "enableFRA")
-            case "NED": return defaults.bool(forKey: "enableNED")
-            case "POR": return defaults.bool(forKey: "enablePOR")
-            case "MEX": return defaults.bool(forKey: "enableMEX")
-            case "TUR": return defaults.bool(forKey: "enableTUR")
-            case "BRA1": return defaults.bool(forKey: "enableBRA1")
-            case "BRA2": return defaults.bool(forKey: "enableBRA2")
-            case "KSA": return defaults.bool(forKey: "enableKSA")
-            case "NLL": return defaults.bool(forKey: "enableNLL")
-            case "PLL": return defaults.bool(forKey: "enablePLL")
-            case "LNCAAM": return defaults.bool(forKey: "enableLNCAAM")
-            case "LNCAAF": return defaults.bool(forKey: "enableLNCAAF")
-            case "VNCAAM": return defaults.bool(forKey: "enableVNCAAM")
-            case "VNCAAF": return defaults.bool(forKey: "enableVNCAAF")
-            case "OMIHC": return defaults.bool(forKey: "enableOMIHC")
-            case "OWIHC": return defaults.bool(forKey: "enableOWIHC")
-            case "NCAA M": return defaults.bool(forKey: "enableNCAAM")
-            case "NCAA F": return defaults.bool(forKey: "enableNCAAF")
-            case "FFWC": return defaults.bool(forKey: "enableFFWC")
-            case "FFWWC": return defaults.bool(forKey: "enableFFWWC")
-            case "FFWCQUEFA": return defaults.bool(forKey: "enableFFWCQUEFA")
-            case "CONMEBOL": return defaults.bool(forKey: "enableCONMEBOL")
-            case "CONCACAF": return defaults.bool(forKey: "enableCONCACAF")
-            case "CAF": return defaults.bool(forKey: "enableCAF")
-            case "AFC": return defaults.bool(forKey: "enableAFC")
-            case "OFC": return defaults.bool(forKey: "enableOFC")
-            default: return false
-            }
-        }
-        .sorted()
-    }
-
-    static func supportsTeams(_ leagueKey: String) -> Bool {
-        mappings[leagueKey] != nil
-    }
 }

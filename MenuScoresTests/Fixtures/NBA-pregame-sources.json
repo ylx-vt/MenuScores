@@ -1,0 +1,27 @@
+{
+  "description": "Minimal factual projections of publicly retrieved ESPN responses, not full articles or runtime hardcoded data. Only tests consume these fixture files.",
+  "summary": {
+    "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909285",
+    "cache_date": "2026-10-30T12:59:15Z",
+    "event_id": "401909285",
+    "season": 2027,
+    "stage": 2
+  },
+  "schedules": {
+    "lakers": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/13/schedule?season=2027&seasontype=2",
+      "retrieved_at": "2026-10-30T13:13:20.008902+00:00",
+      "sha256": "0abb8e8d3618c1bf51e9250535b2ee89e2f682d6f71ed5ed402e94011d70fb3c"
+    },
+    "warriors": {
+      "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/9/schedule?season=2027&seasontype=2",
+      "retrieved_at": "2026-10-30T13:13:20.341781+00:00",
+      "sha256": "90ed64385390461ec7c18fe24836900f5e2bff72d332b23a6c55111b3be72447"
+    }
+  },
+  "fixture_sha256": {
+    "NBA-pregame-lakers-schedule.json": "c4b1be6cbcf606d243e1706a8a35d05bd944e3bee72a1d6fe911d3f7ccf87367",
+    "NBA-pregame-summary.json": "a78c4cb148129d592100273d6446c346ba5936dd8bfc45358e9a44134a00779f",
+    "NBA-pregame-warriors-schedule.json": "291b8ce6648bb1de464a27d5a92db6d1b22dbc3de197c3bbe9a978121d3a7d37"
+  }
+}

@@ -35,9 +35,11 @@ struct Status: Decodable {
     let displayClock: String?
     let period: Int?
     let type: type
+    var clock: Double? = nil
 }
 
 struct type: Decodable {
+    var name: String? = nil
     let state: String
     let completed: Bool
     let detail: String?
@@ -77,6 +79,7 @@ struct Notes: Decodable {
 }
 
 struct Competitor: Decodable {
+    let homeAway: String?
     let id: String
     let score: String?
     let order: Int?

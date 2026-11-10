@@ -1,0 +1,563 @@
+{
+  "requestedSeason": {
+    "year": 2027,
+    "type": 2,
+    "name": "Regular Season",
+    "displayName": "2026-27"
+  },
+  "team": {
+    "id": "9",
+    "abbreviation": "GS",
+    "displayName": "Golden State Warriors",
+    "color": "fdb927",
+    "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png"
+  },
+  "events": [
+    {
+      "id": "401909092",
+      "date": "2026-10-22T02:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 0.0,
+            "displayClock": "0.0",
+            "period": 4,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "id": "13",
+              "homeAway": "home",
+              "team": {
+                "id": "13",
+                "abbreviation": "LAL",
+                "displayName": "Los Angeles Lakers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 127.0,
+                "displayValue": "127"
+              }
+            },
+            {
+              "id": "9",
+              "homeAway": "away",
+              "team": {
+                "id": "9",
+                "abbreviation": "GS",
+                "displayName": "Golden State Warriors",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 105.0,
+                "displayValue": "105"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401909850",
+      "date": "2026-10-24T02:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 0.0,
+            "displayClock": "0.0",
+            "period": 4,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "id": "9",
+              "homeAway": "home",
+              "team": {
+                "id": "9",
+                "abbreviation": "GS",
+                "displayName": "Golden State Warriors",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 108.0,
+                "displayValue": "108"
+              }
+            },
+            {
+              "id": "29",
+              "homeAway": "away",
+              "team": {
+                "id": "29",
+                "abbreviation": "MEM",
+                "displayName": "Memphis Grizzlies",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/mem.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 111.0,
+                "displayValue": "111"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401909860",
+      "date": "2026-10-25T02:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 0.0,
+            "displayClock": "0.0",
+            "period": 4,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "id": "21",
+              "homeAway": "home",
+              "team": {
+                "id": "21",
+                "abbreviation": "PHX",
+                "displayName": "Phoenix Suns",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/phx.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 131.0,
+                "displayValue": "131"
+              }
+            },
+            {
+              "id": "9",
+              "homeAway": "away",
+              "team": {
+                "id": "9",
+                "abbreviation": "GS",
+                "displayName": "Golden State Warriors",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 122.0,
+                "displayValue": "122"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401909876",
+      "date": "2026-10-27T02:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 720.0,
+            "displayClock": "12:00",
+            "period": 4,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "id": "7",
+              "homeAway": "home",
+              "team": {
+                "id": "7",
+                "abbreviation": "DEN",
+                "displayName": "Denver Nuggets",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/den.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/den.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 114.0,
+                "displayValue": "114"
+              }
+            },
+            {
+              "id": "9",
+              "homeAway": "away",
+              "team": {
+                "id": "9",
+                "abbreviation": "GS",
+                "displayName": "Golden State Warriors",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 134.0,
+                "displayValue": "134"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401909888",
+      "date": "2026-10-29T00:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 0.0,
+            "displayClock": "0.0",
+            "period": 4,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "id": "16",
+              "homeAway": "home",
+              "team": {
+                "id": "16",
+                "abbreviation": "MIN",
+                "displayName": "Minnesota Timberwolves",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/min.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/min.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 114.0,
+                "displayValue": "114"
+              }
+            },
+            {
+              "id": "9",
+              "homeAway": "away",
+              "team": {
+                "id": "9",
+                "abbreviation": "GS",
+                "displayName": "Golden State Warriors",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": {
+                "value": 119.0,
+                "displayValue": "119"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401909285",
+      "date": "2026-10-31T02:00Z",
+      "season": {
+        "year": 2027,
+        "displayName": "2026-27"
+      },
+      "seasonType": {
+        "id": "2",
+        "type": 2,
+        "name": "Regular Season",
+        "abbreviation": "reg"
+      },
+      "competitions": [
+        {
+          "status": {
+            "clock": 0.0,
+            "displayClock": "0.0",
+            "period": 0,
+            "type": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Fri, October 30th at 10:00 PM EDT",
+              "shortDetail": "10/30 - 10:00 PM EDT"
+            }
+          },
+          "competitors": [
+            {
+              "id": "9",
+              "homeAway": "home",
+              "team": {
+                "id": "9",
+                "abbreviation": "GS",
+                "displayName": "Golden State Warriors",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/gs.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": null
+            },
+            {
+              "id": "13",
+              "homeAway": "away",
+              "team": {
+                "id": "13",
+                "abbreviation": "LAL",
+                "displayName": "Los Angeles Lakers",
+                "logos": [
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+                    "rel": [
+                      "full",
+                      "default"
+                    ]
+                  },
+                  {
+                    "href": "https://a.espncdn.com/i/teamlogos/nba/500-dark/lal.png",
+                    "rel": [
+                      "full",
+                      "dark"
+                    ]
+                  }
+                ]
+              },
+              "score": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -27,7 +27,7 @@ struct NotchlessView<Expanded, CompactLeading, CompactTrailing>: View where Expa
     var body: some View {
         notchContent()
             .background {
-                VisualEffectView(material: .popover, blendingMode: .behindWindow)
+                Color.black.opacity(0.96)
                     .overlay {
                         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                             .strokeBorder(.quaternary, lineWidth: 1)
@@ -39,13 +39,22 @@ struct NotchlessView<Expanded, CompactLeading, CompactTrailing>: View where Expa
                 // This makes sure that the floating window FULLY slides off before disappearing
                 windowHeight = newHeight
             }
-            .offset(y: dynamicNotch.state == .expanded ? dynamicNotch.notchSize.height : -windowHeight)
-            .onHover(perform: dynamicNotch.updateHoverState)
+            .offset(y: dynamicNotch.state != .hidden ? dynamicNotch.notchSize.height : -windowHeight)
+            .background(PassiveHoverTracking(update: dynamicNotch.updateHoverState).frame(maxWidth: .infinity, maxHeight: .infinity))
     }
 
     private func notchContent() -> some View {
         VStack(spacing: 0) {
-            dynamicNotch.expandedContent
+            Group {
+                if dynamicNotch.state == .compact {
+                    HStack(spacing: 14) {
+                        dynamicNotch.compactLeadingContent
+                        dynamicNotch.compactTrailingContent
+                    }
+                } else {
+                    dynamicNotch.expandedContent
+                }
+            }
                 .transition(.blur(intensity: 10).combined(with: .opacity))
                 .safeAreaInset(edge: .top, spacing: 0) { Color.clear.frame(height: safeAreaInset) }
                 .safeAreaInset(edge: .bottom, spacing: 0) { Color.clear.frame(height: safeAreaInset) }

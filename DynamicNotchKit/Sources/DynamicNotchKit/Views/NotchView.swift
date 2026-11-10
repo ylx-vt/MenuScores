@@ -83,7 +83,7 @@ struct NotchView<Expanded, CompactLeading, CompactTrailing>: View where Expanded
                 .offset(x: dynamicNotch.state == .compact ? 0 : compactXOffset)
                 .frame(
                     width: dynamicNotch.state == .compact ? nil : dynamicNotch.notchSize.width,
-                    height: (dynamicNotch.state == .compact && dynamicNotch.isHovering) ? dynamicNotch.menubarHeight : dynamicNotch.notchSize.height
+                    height: dynamicNotch.notchSize.height
                 )
 
             expandedContent()
@@ -97,7 +97,7 @@ struct NotchView<Expanded, CompactLeading, CompactTrailing>: View where Expanded
         .padding(.horizontal, topCornerRadius)
         .fixedSize()
         .frame(minWidth: minWidth, minHeight: dynamicNotch.notchSize.height)
-        .onHover(perform: dynamicNotch.updateHoverState)
+        .background(PassiveHoverTracking(update: dynamicNotch.updateHoverState).frame(maxWidth: .infinity, maxHeight: .infinity))
     }
 
     func compactContent() -> some View {

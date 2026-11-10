@@ -41,17 +41,7 @@
                ReferencedContainer = "container:MenuScores.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0D9553332DC6700300615774"
-               BuildableName = "MenuScoresUITests.xctest"
-               BlueprintName = "MenuScoresUITests"
-               ReferencedContainer = "container:MenuScores.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
+
       </Testables>
    </TestAction>
    <LaunchAction

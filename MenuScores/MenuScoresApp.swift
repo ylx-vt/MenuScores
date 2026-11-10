@@ -1,1212 +1,222 @@
-//
-//  MenuScoresApp.swift
-//  MenuScores
-//
-//  Created by Daniyal Master on 2025-05-03.
-//
-
-import DynamicNotchKit
 import SwiftUI
-
-class LeagueSelectionModel: ObservableObject {
-    @Published var currentLeague: String = ""
-}
-
-extension LeagueSelectionModel {
-    static let shared = LeagueSelectionModel()
-}
 
 @main
 struct MenuScoresApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-    private let updateManager = UpdateManager()
-
-    // Toggled League Settings
-
-    @AppStorage("enableNHL") private var enableNHL = true
-    @AppStorage("enableHNCAAM") private var enableHNCAAM = false
-    @AppStorage("enableHNCAAF") private var enableHNCAAF = false
-
-    @AppStorage("enableNBA") private var enableNBA = true
-    @AppStorage("enableWNBA") private var enableWNBA = false
-    @AppStorage("enableNCAAM") private var enableNCAAM = false
-    @AppStorage("enableNCAAF") private var enableNCAAF = false
-    @AppStorage("enableSNBA") private var enableSNBA = false
-    @AppStorage("enableGNBA") private var enableGNBA = false
-
-    @AppStorage("enableNFL") private var enableNFL = true
-    @AppStorage("enableAFL") private var enableAFL = false
-    @AppStorage("enableFNCAA") private var enableFNCAA = false
-
-    @AppStorage("enableMLB") private var enableMLB = true
-    @AppStorage("enableBNCAA") private var enableBNCAA = false
-    @AppStorage("enableSNCAA") private var enableSNCAA = false
-
-    @AppStorage("enableF1") private var enableF1 = false
-    @AppStorage("enableNC") private var enableNC = false
-    @AppStorage("enableNCS") private var enableNCS = false
-    @AppStorage("enableNCT") private var enableNCT = false
-    @AppStorage("enableIRL") private var enableIRL = false
-
-    @AppStorage("enablePGA") private var enablePGA = false
-    @AppStorage("enableLPGA") private var enableLPGA = false
-
-    @AppStorage("enableMLS") private var enableMLS = true
-    @AppStorage("enableNWSL") private var enableNWSL = false
-    @AppStorage("enableUEFA") private var enableUEFA = false
-    @AppStorage("enableUEFAN") private var enableUEFAN = false
-    @AppStorage("enableEUEFA") private var enableEUEFA = false
-    @AppStorage("enableWUEFA") private var enableWUEFA = false
-    @AppStorage("enableMEX") private var enableMEX = false
-    @AppStorage("enableFRA") private var enableFRA = false
-    @AppStorage("enableNED") private var enableNED = false
-    @AppStorage("enablePOR") private var enablePOR = false
-    @AppStorage("enableEPL") private var enableEPL = false
-    @AppStorage("enableWEPL") private var enableWEPL = false
-    @AppStorage("enableESP") private var enableESP = false
-    @AppStorage("enableGER") private var enableGER = false
-    @AppStorage("enableITA") private var enableITA = false
-    @AppStorage("enableTUR") private var enableTUR = false
-    @AppStorage("enableBRA1") private var enableBRA1 = false
-    @AppStorage("enableBRA2") private var enableBRA2 = false
-    @AppStorage("enableKSA") private var enableKSA = false
-
-    @AppStorage("enableATP") private var enableATP = false
-    @AppStorage("enableWTA") private var enableWTA = false
-
-    @AppStorage("enableUFC") private var enableUFC = false
-
-    @AppStorage("enableIPL") private var enableIPL = false
-
-    @AppStorage("enableNLL") private var enableNLL = false
-    @AppStorage("enablePLL") private var enablePLL = false
-    @AppStorage("enableLNCAAM") private var enableLNCAAM = false
-    @AppStorage("enableLNCAAF") private var enableLNCAAF = false
-
-    @AppStorage("enableVNCAAM") private var enableVNCAAM = false
-    @AppStorage("enableVNCAAF") private var enableVNCAAF = false
-
-    @AppStorage("enableOMIHC") private var enableOMIHC = false
-    @AppStorage("enableOWIHC") private var enableOWIHC = false
-    @AppStorage("enableOMB") private var enableOMB = false
-    @AppStorage("enableOWB") private var enableOWB = false
-
-    @AppStorage("enableFFWC") private var enableFFWC = false
-    @AppStorage("enableFFWWC") private var enableFFWWC = false
-    @AppStorage("enableFFWCQUEFA") private var enableFFWCQUEFA = false
-    @AppStorage("enableCONCACAF") private var enableCONCACAF = false
-    @AppStorage("enableCONMEBOL") private var enableCONMEBOL = false
-    @AppStorage("enableCAF") private var enableCAF = false
-    @AppStorage("enableAFC") private var enableAFC = false
-    @AppStorage("enableOFC") private var enableOFC = false
-
-    // Title State Settings
-
-    @State var currentTitle: String = ""
-    @State var currentGameID: String = ""
-    @State var currentGameState: String = "pre"
-    @State private var previousGameState: String? = nil
-
-    // Notch Data
-
-    @StateObject private var notchViewModel = NotchViewModel()
-
-    // Notch Behaviors
-
-    @AppStorage("enableNotch") private var enableNotch = true
-    @AppStorage("notchScreenIndex") private var notchScreenIndex = 0
-
-    // League Fetching
-
-    @StateObject private var nhlVM = GamesListView()
-    @StateObject private var hncaamVM = GamesListView()
-    @StateObject private var hncaafVM = GamesListView()
-
     @StateObject private var nbaVM = GamesListView()
-    @StateObject private var wnbaVM = GamesListView()
-    @StateObject private var ncaamVM = GamesListView()
-    @StateObject private var ncaafVM = GamesListView()
-    @StateObject private var snbaVM = GamesListView()
-    @StateObject private var gnbaVM = GamesListView()
-
-    @StateObject private var nflVM = GamesListView()
-    @StateObject private var aflVM = GamesListView()
-    @StateObject private var fncaaVM = GamesListView()
-
-    @StateObject private var mlbVM = GamesListView()
-    @StateObject private var bncaaVM = GamesListView()
-    @StateObject private var sncaaVM = GamesListView()
-
-    @StateObject private var f1VM = RacingListView()
-    @StateObject private var ncVM = RacingListView()
-    @StateObject private var ncsVM = RacingListView()
-    @StateObject private var nctVM = RacingListView()
-    @StateObject private var irlVM = RacingListView()
-
-    @StateObject private var pgaVM = GamesListView()
-    @StateObject private var lpgaVM = GamesListView()
-
-    @StateObject private var uefaVM = GamesListView()
-    @StateObject private var uefanVM = GamesListView()
-    @StateObject private var euefaVM = GamesListView()
-    @StateObject private var wuefaVM = GamesListView()
-    @StateObject private var mlsVM = GamesListView()
-    @StateObject private var nwslVM = GamesListView()
-    @StateObject private var mexVM = GamesListView()
-    @StateObject private var fraVM = GamesListView()
-    @StateObject private var nedVM = GamesListView()
-    @StateObject private var porVM = GamesListView()
-    @StateObject private var eplVM = GamesListView()
-    @StateObject private var weplVM = GamesListView()
-    @StateObject private var espVM = GamesListView()
-    @StateObject private var gerVM = GamesListView()
-    @StateObject private var itaVM = GamesListView()
-    @StateObject private var turVM = GamesListView()
-    @StateObject private var bra1VM = GamesListView()
-    @StateObject private var bra2VM = GamesListView()
-    @StateObject private var ksaVM = GamesListView()
-
-    @StateObject private var atpVM = TennisListView()
-    @StateObject private var wtaVM = TennisListView()
-
-    @StateObject private var ufcVM = FightingListView()
-
-    @StateObject private var iplVM = CricketListView()
-
-    @StateObject private var nllVM = GamesListView()
-    @StateObject private var pllVM = GamesListView()
-    @StateObject private var lncaamVM = GamesListView()
-    @StateObject private var lncaafVM = GamesListView()
-
-    @StateObject private var vncaamVM = GamesListView()
-    @StateObject private var vncaafVM = GamesListView()
-
-    @StateObject private var omihcVM = GamesListView()
-    @StateObject private var owihcVM = GamesListView()
-    @StateObject private var ombVM = GamesListView()
-    @StateObject private var owbVM = GamesListView()
-
-    @StateObject private var ffwcVM = GamesListView()
-    @StateObject private var ffwwcVM = GamesListView()
-    @StateObject private var ffwcquefaVM = GamesListView()
-    @StateObject private var conmebolVM = GamesListView()
-    @StateObject private var concacafVM = GamesListView()
-    @StateObject private var cafVM = GamesListView()
-    @StateObject private var afcVM = GamesListView()
-    @StateObject private var ofcVM = GamesListView()
+    @State private var showingHistory = false
+    @State private var selectedArticle: NBARecap?
+    @State private var selectedDetail: (id: String, route: NBAReviewPanelModel.Route)?
+    @StateObject private var pins = NBAPinnedSelectionStore.shared
+    @State private var scheduleRefreshID = UUID()
+    @State private var recoveryID = ""
+    @State private var recoveryAfter = Date.distantPast
+    @AppStorage("refreshInterval") private var refreshInterval = "15 seconds"
 
     var body: some Scene {
-        MenuBarExtra {
-            if enableNHL {
-                HockeyMenu(
-                    title: "NHL",
-                    viewModel: nhlVM,
-                    league: "NHL",
-                    fetchURL: Scoreboard.Urls.nhl,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableHNCAAM {
-                HockeyMenu(
-                    title: "NCAA M Hockey",
-                    viewModel: hncaamVM,
-                    league: "HNCAAM",
-                    fetchURL: Scoreboard.Urls.hncaam,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableHNCAAF {
-                HockeyMenu(
-                    title: "NCAA F Hockey",
-                    viewModel: hncaafVM,
-                    league: "HNCAAF",
-                    fetchURL: Scoreboard.Urls.hncaaf,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableNBA {
-                BasketballMenu(
-                    title: "NBA",
-                    viewModel: nbaVM,
-                    league: "NBA",
-                    fetchURL: Scoreboard.Urls.nba,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableWNBA {
-                BasketballMenu(
-                    title: "WNBA",
-                    viewModel: wnbaVM,
-                    league: "WNBA",
-                    fetchURL: Scoreboard.Urls.wnba,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableNCAAM {
-                BasketballMenu(
-                    title: "NCAA M Basketball",
-                    viewModel: ncaamVM,
-                    league: "NCAA M",
-                    fetchURL: Scoreboard.Urls.ncaam,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableNCAAF {
-                BasketballMenu(
-                    title: "NCAA F Basketball",
-                    viewModel: ncaafVM,
-                    league: "NCAA F",
-                    fetchURL: Scoreboard.Urls.ncaaf,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableSNBA {
-                BasketballMenu(
-                    title: "NBA Summer",
-                    viewModel: snbaVM,
-                    league: "SNBA",
-                    fetchURL: Scoreboard.Urls.snba,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableGNBA {
-                BasketballMenu(
-                    title: "NBA G League",
-                    viewModel: gnbaVM,
-                    league: "GNBA",
-                    fetchURL: Scoreboard.Urls.gnba,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableNFL {
-                FootballMenu(
-                    title: "NFL",
-                    viewModel: nflVM,
-                    league: "NFL",
-                    fetchURL: Scoreboard.Urls.nfl,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableAFL {
-                FootballMenu(
-                    title: "AFL",
-                    viewModel: aflVM,
-                    league: "AFL",
-                    fetchURL: Scoreboard.Urls.afl,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableFNCAA {
-                FootballMenu(
-                    title: "NCAA Football",
-                    viewModel: fncaaVM,
-                    league: "FNCAA",
-                    fetchURL: Scoreboard.Urls.fncaa,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableMLB {
-                BaseballMenu(
-                    title: "MLB",
-                    viewModel: mlbVM,
-                    league: "MLB",
-                    fetchURL: Scoreboard.Urls.mlb,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableBNCAA {
-                BaseballMenu(
-                    title: "NCAA Baseball",
-                    viewModel: bncaaVM,
-                    league: "BNCAA",
-                    fetchURL: Scoreboard.Urls.bncaa,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableSNCAA {
-                BaseballMenu(
-                    title: "NCAA Softball",
-                    viewModel: sncaaVM,
-                    league: "SNCAA",
-                    fetchURL: Scoreboard.Urls.sncaa,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableMLS {
-                SoccerMenu(
-                    title: "MLS",
-                    viewModel: mlsVM,
-                    league: "MLS",
-                    fetchURL: Scoreboard.Urls.mls,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableNWSL {
-                SoccerMenu(
-                    title: "NWSL",
-                    viewModel: nwslVM,
-                    league: "NWSL",
-                    fetchURL: Scoreboard.Urls.nwsl,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableUEFA {
-                SoccerMenu(
-                    title: "Champions League",
-                    viewModel: uefaVM,
-                    league: "UEFA",
-                    fetchURL: Scoreboard.Urls.uefa,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableUEFAN {
-                SoccerMenu(
-                    title: "UEFA Nations League",
-                    viewModel: uefanVM,
-                    league: "UEFAN",
-                    fetchURL: Scoreboard.Urls.uefan,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableEUEFA {
-                SoccerMenu(
-                    title: "Europa Champions League",
-                    viewModel: euefaVM,
-                    league: "EUEFA",
-                    fetchURL: Scoreboard.Urls.euefa,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableWUEFA {
-                SoccerMenu(
-                    title: "Womans Champions League",
-                    viewModel: wuefaVM,
-                    league: "WUEFA",
-                    fetchURL: Scoreboard.Urls.wuefa,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableEPL {
-                SoccerMenu(
-                    title: "Premier League",
-                    viewModel: eplVM,
-                    league: "EPL",
-                    fetchURL: Scoreboard.Urls.epl,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableWEPL {
-                SoccerMenu(
-                    title: "Women's Super League",
-                    viewModel: weplVM,
-                    league: "wepl",
-                    fetchURL: Scoreboard.Urls.wepl,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableESP {
-                SoccerMenu(
-                    title: "La Liga",
-                    viewModel: espVM,
-                    league: "ESP",
-                    fetchURL: Scoreboard.Urls.esp,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableGER {
-                SoccerMenu(
-                    title: "Budesliga",
-                    viewModel: gerVM,
-                    league: "GER",
-                    fetchURL: Scoreboard.Urls.ger,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableITA {
-                SoccerMenu(
-                    title: "Serie A",
-                    viewModel: itaVM,
-                    league: "ITA",
-                    fetchURL: Scoreboard.Urls.ita,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableMEX {
-                SoccerMenu(
-                    title: "Liga MX",
-                    viewModel: mexVM,
-                    league: "MEX",
-                    fetchURL: Scoreboard.Urls.mex,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableFRA {
-                SoccerMenu(
-                    title: "Ligue 1",
-                    viewModel: fraVM,
-                    league: "FRA",
-                    fetchURL: Scoreboard.Urls.fra,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableNED {
-                SoccerMenu(
-                    title: "Eredivisie",
-                    viewModel: nedVM,
-                    league: "NED",
-                    fetchURL: Scoreboard.Urls.ned,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enablePOR {
-                SoccerMenu(
-                    title: "Primeira Liga",
-                    viewModel: porVM,
-                    league: "POR",
-                    fetchURL: Scoreboard.Urls.por,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableTUR {
-                SoccerMenu(
-                    title: "Turkish Super Lig",
-                    viewModel: turVM,
-                    league: "TUR",
-                    fetchURL: Scoreboard.Urls.tur,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableBRA1 {
-                SoccerMenu(
-                    title: "Brazilian Serie A",
-                    viewModel: bra1VM,
-                    league: "BRA1",
-                    fetchURL: Scoreboard.Urls.bra1,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableBRA2 {
-                SoccerMenu(
-                    title: "Brazilian Serie B",
-                    viewModel: bra2VM,
-                    league: "BRA2",
-                    fetchURL: Scoreboard.Urls.bra2,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableKSA {
-                SoccerMenu(
-                    title: "Saudi Pro League",
-                    viewModel: ksaVM,
-                    league: "KSA",
-                    fetchURL: Scoreboard.Urls.ksa,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableF1 {
-                F1Menu(
-                    title: "F1",
-                    viewModel: f1VM,
-                    league: "F1",
-                    fetchURL: Scoreboard.Urls.f1,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableNC {
-                RacingMenu(
-                    title: "Nascar Premier",
-                    viewModel: ncVM,
-                    league: "NC",
-                    fetchURL: Scoreboard.Urls.nc,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableNCS {
-                RacingMenu(
-                    title: "Nascar Secondary",
-                    viewModel: ncsVM,
-                    league: "NCS",
-                    fetchURL: Scoreboard.Urls.ncs,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableNCT {
-                RacingMenu(
-                    title: "Nascar Truck",
-                    viewModel: nctVM,
-                    league: "NCT",
-                    fetchURL: Scoreboard.Urls.nct,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableIRL {
-                RacingMenu(
-                    title: "IndyCar",
-                    viewModel: irlVM,
-                    league: "IRL",
-                    fetchURL: Scoreboard.Urls.irl,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enablePGA {
-                GolfMenu(
-                    title: "PGA",
-                    viewModel: pgaVM,
-                    league: "PGA",
-                    fetchURL: Scoreboard.Urls.pga,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableLPGA {
-                GolfMenu(
-                    title: "LPGA",
-                    viewModel: lpgaVM,
-                    league: "LPGA",
-                    fetchURL: Scoreboard.Urls.lpga,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableATP {
-                TennisMenu(
-                    title: "ATP Tour",
-                    viewModel: atpVM,
-                    league: "ATP",
-                    fetchURL: Scoreboard.Urls.atp,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableWTA {
-                TennisMenu(
-                    title: "WTA Tour",
-                    viewModel: wtaVM,
-                    league: "WTA",
-                    fetchURL: Scoreboard.Urls.wta,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableUFC {
-                FightingMenu(
-                    title: "UFC",
-                    viewModel: ufcVM,
-                    league: "UFC",
-                    fetchURL: Scoreboard.Urls.ufc,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableIPL {
-                CricketMenu(
-                    title: "IPL",
-                    viewModel: iplVM,
-                    league: "IPL",
-                    fetchURL: Scoreboard.Urls.ipl,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableNLL {
-                LacrosseMenu(
-                    title: "NLL",
-                    viewModel: nllVM,
-                    league: "NLL",
-                    fetchURL: Scoreboard.Urls.nll,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enablePLL {
-                LacrosseMenu(
-                    title: "PLL",
-                    viewModel: pllVM,
-                    league: "PLL",
-                    fetchURL: Scoreboard.Urls.pll,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableLNCAAM {
-                LacrosseMenu(
-                    title: "NCAA M Lacrosse",
-                    viewModel: lncaamVM,
-                    league: "LNCAAM",
-                    fetchURL: Scoreboard.Urls.lncaam,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableLNCAAF {
-                LacrosseMenu(
-                    title: "NCAA F Lacrosse",
-                    viewModel: lncaafVM,
-                    league: "LNCAAF",
-                    fetchURL: Scoreboard.Urls.lncaaf,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableVNCAAM {
-                VolleyballMenu(
-                    title: "NCAA M Volleyball",
-                    viewModel: vncaamVM,
-                    league: "VNCAAM",
-                    fetchURL: Scoreboard.Urls.vncaam,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableVNCAAF {
-                VolleyballMenu(
-                    title: "NCAA F Volleyball",
-                    viewModel: vncaafVM,
-                    league: "VNCAAF",
-                    fetchURL: Scoreboard.Urls.vncaaf,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableOMIHC {
-                HockeyMenu(
-                    title: "Men's Olympic Ice Hockey",
-                    viewModel: omihcVM,
-                    league: "OMIHC",
-                    fetchURL: Scoreboard.Urls.omihc,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableOWIHC {
-                HockeyMenu(
-                    title: "Women's Olympic Ice Hockey",
-                    viewModel: owihcVM,
-                    league: "OWIHC",
-                    fetchURL: Scoreboard.Urls.owihc,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableOMB {
-                HockeyMenu(
-                    title: "Men's Olympic Basketball",
-                    viewModel: ombVM,
-                    league: "OMB",
-                    fetchURL: Scoreboard.Urls.omb,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableOWB {
-                HockeyMenu(
-                    title: "Women's Olympic Basketball",
-                    viewModel: owbVM,
-                    league: "OWB",
-                    fetchURL: Scoreboard.Urls.owb,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableFFWC {
-                SoccerMenu(
-                    title: "FIFA World Cup",
-                    viewModel: ffwcVM,
-                    league: "FFWC",
-                    fetchURL: Scoreboard.Urls.ffwc,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableFFWWC {
-                SoccerMenu(
-                    title: "FIFA Women's World Cup",
-                    viewModel: ffwwcVM,
-                    league: "FFWWC",
-                    fetchURL: Scoreboard.Urls.ffwwc,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableFFWCQUEFA {
-                SoccerMenu(
-                    title: "FIFA World Cup UEFA Qualifiers",
-                    viewModel: ffwcquefaVM,
-                    league: "FFWCQUEFA",
-                    fetchURL: Scoreboard.Urls.ffwcquefa,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableCONMEBOL {
-                SoccerMenu(
-                    title: "FIFA World Cup CONMEBOL Qualifiers",
-                    viewModel: conmebolVM,
-                    league: "CONMEBOL",
-                    fetchURL: Scoreboard.Urls.conmebol,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableCONCACAF {
-                SoccerMenu(
-                    title: "FIFA World Cup CONCACAF Qualifiers",
-                    viewModel: concacafVM,
-                    league: "CONCACAF",
-                    fetchURL: Scoreboard.Urls.concacaf,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableCAF {
-                SoccerMenu(
-                    title: "FIFA World Cup African Qualifiers",
-                    viewModel: cafVM,
-                    league: "CAF",
-                    fetchURL: Scoreboard.Urls.caf,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableAFC {
-                SoccerMenu(
-                    title: "FIFA World Cup Asian Qualifiers",
-                    viewModel: afcVM,
-                    league: "AFC",
-                    fetchURL: Scoreboard.Urls.afc,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            if enableOFC {
-                SoccerMenu(
-                    title: "FIFA World Cup Oceanian Qualifiers",
-                    viewModel: ofcVM,
-                    league: "OFC",
-                    fetchURL: Scoreboard.Urls.ofc,
-                    currentTitle: $currentTitle,
-                    currentGameID: $currentGameID,
-                    currentGameState: $currentGameState,
-                    previousGameState: $previousGameState
-                )
-            }
-
-            Divider()
-                .onAppear {
-                    FavoritesManager.shared.registerViewModels(
-                        nhl: nhlVM,
-                        hncaam: hncaamVM,
-                        hncaaf: hncaafVM,
-                        nba: nbaVM,
-                        wnba: wnbaVM,
-                        ncaam: ncaamVM,
-                        ncaaf: ncaafVM,
-                        snba: snbaVM,
-                        gnba: gnbaVM,
-                        nfl: nflVM,
-                        afl: aflVM,
-                        fncaa: fncaaVM,
-                        mlb: mlbVM,
-                        bncaa: bncaaVM,
-                        sncaa: sncaaVM,
-                        f1: f1VM,
-                        nc: ncVM,
-                        ncs: ncsVM,
-                        nct: nctVM,
-                        irl: irlVM,
-                        pga: pgaVM,
-                        lpga: lpgaVM,
-                        uefa: uefaVM,
-                        uefan: uefanVM,
-                        euefa: euefaVM,
-                        wuefa: wuefaVM,
-                        mls: mlsVM,
-                        nwsl: nwslVM,
-                        mex: mexVM,
-                        fra: fraVM,
-                        ned: nedVM,
-                        por: porVM,
-                        epl: eplVM,
-                        wepl: weplVM,
-                        esp: espVM,
-                        ger: gerVM,
-                        ita: itaVM,
-                        tur: turVM,
-                        bra1: bra1VM,
-                        bra2: bra2VM,
-                        ksa: ksaVM,
-                        nll: nllVM,
-                        pll: pllVM,
-                        lncaam: lncaamVM,
-                        lncaaf: lncaafVM,
-                        vncaam: vncaamVM,
-                        vncaaf: vncaafVM,
-                        omihc: omihcVM,
-                        owihc: owihcVM,
-                        omb: ombVM,
-                        owb: owbVM,
-                        ffwc: ffwcVM,
-                        ffwwc: ffwwcVM,
-                        ffwcquefa: ffwcquefaVM,
-                        conmebol: conmebolVM,
-                        concacaf: concacafVM,
-                        caf: cafVM,
-                        afc: afcVM,
-                        ofc: ofcVM
-                    )
-                }
-
-            if enableNotch {
-                Picker("Choose Display", selection: $notchScreenIndex) {
-                    ForEach(Array(NSScreen.screens.enumerated()), id: \.offset) { index, screen in
-                        Text(screen.localizedName)
-                            .tag(index)
+        MenuBarExtra(isInserted: .constant(!AppRuntime.isTerraSummaryDemo && !AppRuntime.isCredentialSetup && !AppRuntime.isRecapNotificationSetup)) {
+            NBAMainMenuNavigation(showingDetail: Binding(get: { selectedArticle != nil || selectedDetail != nil }, set: { if !$0 { selectedArticle = nil; selectedDetail = nil } }), showingHistory: $showingHistory,
+                                  showSettings: { SettingsWindowController.shared.showWindow() }) {
+            if let article = selectedArticle {
+                NBARecapNotificationReader(article: article) {
+                    selectedArticle = nil; selectedDetail = (article.gameID, .statistics)
+                }.frame(width: 600, height: 540)
+            } else if let detail = selectedDetail {
+                NBAReviewPanelView(gameID: detail.id, initialRoute: detail.route).id(detail.id + detail.route.rawValue)
+            } else if showingHistory {
+                NBAHistoryBrowser { showingHistory = false }
+            } else {
+                VStack(alignment: .leading, spacing: 9) {
+                    HStack {
+                        Text("NBA").font(.system(size: 14, weight: .semibold))
+                        Spacer()
+                        Text("北京时间").font(.caption).foregroundStyle(.secondary)
                     }
-                }
-                .onChange(of: notchScreenIndex) { newIndex in
-                    let screens = NSScreen.screens
-                    guard screens.indices.contains(newIndex) else { return }
-
-                    let targetScreen = screens[newIndex]
-
-                    Task {
-                        await NotchViewModel.shared.notch?.updateScreen(on: targetScreen)
+                    NBAFlatMenu(viewModel: nbaVM, selectedGameID: currentGameID, onSelect: pin,
+                                heading: "今日赛程", maxVisibleGames: nbaVM.showsTomorrow ? 4 : 8,
+                                onOpenArticle: openArticle)
+                    if nbaVM.showsTomorrow {
+                        Divider()
+                        NBAFlatMenu(viewModel: nbaVM, selectedGameID: currentGameID, onSelect: pin,
+                                    heading: "明日赛程", emptyMessage: "明天暂无 NBA 比赛",
+                                    selectionHint: "点击预约到菜单栏", tomorrowSection: true, maxVisibleGames: 4,
+                                    onOpenArticle: openArticle)
                     }
-                }
-            }
-
-            Button {
-                FavoritesManager.shared.dismissAutoPinnedGame(currentGameID)
-
-                currentTitle = ""
-                currentGameID = ""
-                currentGameState = ""
-
-                previousGameState = nil
-
-                Task {
-                    if let notch = NotchViewModel.shared.notch {
-                        await notch.hide()
+                    if let error = pins.persistenceError {
+                        Text(error).font(.caption).foregroundStyle(.orange)
                     }
-
-                    NotchViewModel.shared.notch = nil
-
-                    NotchViewModel.shared.game = nil
-                    NotchViewModel.shared.racingCompetition = nil
-                    NotchViewModel.shared.fightCompetition = nil
-                    NotchViewModel.shared.tennisCompetition = nil
-
-                    NotchViewModel.shared.currentGameID = ""
-                    NotchViewModel.shared.currentGameState = ""
-                    NotchViewModel.shared.previousGameState = ""
-                }
-            } label: {
-                Text("Clear Set Game")
+                    Button { showingHistory = true } label: {
+                        HStack {
+                            Label("历史比赛", systemImage: "calendar")
+                            Spacer()
+                            Image(systemName: "chevron.right").foregroundStyle(.secondary)
+                        }.font(.system(size: 12)).padding(.vertical, 5).contentShape(Rectangle())
+                    }.buttonStyle(.plain)
+                    Divider()
+                    HStack {
+                        Button { SettingsWindowController.shared.showWindow() } label: {
+                            Label("设置", systemImage: "gearshape")
+                        }.keyboardShortcut(",")
+                        Spacer()
+                        if !currentGameID.isEmpty {
+                            Button("取消固定") {
+                                FavoritesManager.shared.dismissAutoPinnedGame(currentGameID)
+                                pins.unpin()
+                            }
+                        }
+                        Button("退出") { NSApplication.shared.terminate(nil) }.keyboardShortcut("q")
+                    }.buttonStyle(.borderless).font(.caption).padding(.top, 2)
+                }.padding(12).frame(width: 420)
+                    .modifier(NBAPanelSurface())
             }
-            .keyboardShortcut("c")
-
-            Divider()
-
-            Button {
-                updateManager.getUpdateData(manualCheck: true)
-            } label: {
-                Text("Check for Updates")
             }
-            .keyboardShortcut("u")
-
-            Button {
-                SettingsWindowController.shared.showWindow()
-            } label: {
-                Text("Preferences")
-            }
-            .keyboardShortcut(",")
-
-            Button {
-                NSApplication.shared.terminate(nil)
-            } label: {
-                Text("Quit")
-            }
-            .keyboardShortcut("q")
         } label: {
-            HStack {
-                Image(systemName: "dot.radiowaves.left.and.right")
-                Text(currentTitle)
-            }
+            Image(systemName: "basketball")
+                .accessibilityLabel("NBA 比赛")
+                // Fetch from the persistent status item, so closing the menu does
+                // not stop score updates or favorite-team detection.
+                .task(priority: .utility) {
+                    guard !AppRuntime.suppressesLiveWork else { return }
+                    let favoriteTeams = Set(FavoritesManager.shared.favorites.filter { $0.leagueKey == "NBA" }.map(\.id))
+                    let pinnedTeams = Set(pins.selection?.game.competitions.first?.competitors?.compactMap { $0.team?.id } ?? [])
+                    await NBAAvatarCache.shared.prepareLeague(priorityTeams: favoriteTeams.union(pinnedTeams))
+                }
+                .task(id: currentGameID) {
+                    guard !AppRuntime.suppressesLiveWork else { return }
+                    guard let game = pins.selection?.game else { return }
+                    await NBAAvatarCache.shared.prioritizeTeams(Set(game.competitions.first?.competitors?.compactMap { $0.team?.id } ?? []))
+                    await NBAAvatarCache.shared.prewarmGame(game.id)
+                }
+                .task(id: scheduleRefreshID) {
+                    guard !AppRuntime.suppressesLiveWork else { return }
+                    FavoritesManager.shared.registerNBA(nbaVM)
+                    while !Task.isCancelled {
+                        let requestedAt = Date()
+                        await nbaVM.refreshSchedule(now: requestedAt)
+                        guard !Task.isCancelled else { return }
+                        // A slow request can straddle noon/midnight. Re-evaluate
+                        // the window immediately, reusing the raw date cache.
+                        if Date() >= NBASchedulePolicy.window(now: requestedAt).nextTransition { continue }
+                        pins.update(from: nbaVM.knownGames)
+                        let recovered = await recoverPinnedGameIfNeeded()
+                        guard !Task.isCancelled else { return }
+                        FavoritesManager.shared.updateNBASelection(pins)
+                        let observations = nbaVM.notificationObservations + (recovered.map { [$0] } ?? [])
+                        await NBATerraAutofill.shared.observe(now: requestedAt)
+                        NBANotchController.shared.observe(observations, refreshFailed: nbaVM.errorMessage != nil)
+                        await NBAGameReminderService.shared.process(observations, eligibleIDs: reminderEligibleIDs,
+                                                                   options: NBAReminderOptions.read()) {
+                            (reminderEligibleIDs, NBAReminderOptions.read())
+                        }
+                        do {
+                            let delay = nextRefreshDelay
+                            try await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
+                        } catch { return }
+                    }
+                }
+                .onReceive(NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.didWakeNotification)) { _ in
+                    scheduleRefreshID = UUID()
+                }
+                .onReceive(NotificationCenter.default.publisher(for: .NSSystemClockDidChange)) { _ in
+                    scheduleRefreshID = UUID()
+                }
         }
-
+        .menuBarExtraStyle(.window)
         .commands {
             CommandGroup(after: .appInfo) {
-                Button {
-                    SettingsWindowController.shared.showWindow()
-                } label: {
-                    Label("Preferences", systemImage: "gear")
-                }
-
-                Button {
-                    updateManager.getUpdateData(manualCheck: true)
-                } label: {
-                    Label("Check for Updates", systemImage: "gear.badge")
-                }
-            }
-
-            CommandGroup(replacing: .help) {
-                Button("MenuScores Help") {
-                    if let url = URL(string: "https://github.com/daniyalmaster693/MenuScores#usage") {
-                        NSWorkspace.shared.open(url)
-                    }
-                }
-
-                Divider()
-
-                Button("Feedback") {
-                    if let url = URL(string: "https://github.com/daniyalmaster693/MenuScores/issues/new") {
-                        NSWorkspace.shared.open(url)
-                    }
-                }
-
-                Button("Changelog") {
-                    if let url = URL(string: "https://github.com/daniyalmaster693/MenuScores/releases") {
-                        NSWorkspace.shared.open(url)
-                    }
-                }
-
-                Button("Website") {
-                    if let url = URL(string: "https://menuscores.vercel.app") {
-                        NSWorkspace.shared.open(url)
-                    }
-                }
-
-                Button("Repository") {
-                    if let url = URL(string: "https://github.com/daniyalmaster693/MenuScores") {
-                        NSWorkspace.shared.open(url)
-                    }
-                }
+                Button("设置…") { SettingsWindowController.shared.showWindow() }
+                    .keyboardShortcut(",")
             }
         }
+
+        MenuBarExtra(isInserted: .constant(!AppRuntime.isTerraSummaryDemo && !AppRuntime.isCredentialSetup && !AppRuntime.isRecapNotificationSetup && pins.selection != nil)) {
+            NBAReviewPanelView(gameID: currentGameID).id(currentGameID)
+        } label: {
+            if let game = pins.selection?.game {
+                Image(nsImage: NBAMenuBarBadge.image(for: game))
+                    .renderingMode(.original)
+                    .help(currentTitle)
+                    .accessibilityLabel("\(currentTitle)，点击查看球员技术统计")
+            } else {
+                Image(systemName: "basketball")
+                    .accessibilityLabel("正在更新比分，点击查看球员技术统计")
+            }
+        }
+        .menuBarExtraStyle(.window)
+    }
+
+    private var currentGameID: String { pins.selection?.eventID ?? "" }
+    private func openArticle(_ game: Event, _ article: NBARecap?) {
+        if let article { selectedArticle = article; selectedDetail = nil }
+        else { selectedDetail = (game.id, .recap); selectedArticle = nil }
+    }
+    private var currentTitle: String { pins.selection.map { NBAMenuPresentation.title(for: $0.game) } ?? "" }
+    private var reminderEligibleIDs: Set<String> {
+        NBAGameReminderEngine.eligibleIDs(games: nbaVM.knownGames,
+            manualID: pins.selection?.source == .manual ? currentGameID : nil,
+            favoriteTeamIDs: Set(FavoritesManager.shared.favorites.filter { $0.leagueKey == "NBA" }.map(\.id)))
+    }
+
+    /// An ID-specific summary keeps a reservation useful even after rescheduling
+    /// moves it outside the visible dates. Errors keep the persisted snapshot.
+    @MainActor
+    private func recoverPinnedGameIfNeeded() async -> NBAGameObservation? {
+        let id = currentGameID
+        guard !id.isEmpty,
+              !nbaVM.knownGames.contains(where: { $0.id == id }) || nbaVM.errorMessage != nil,
+              recoveryID != id || Date() >= recoveryAfter else { return nil }
+        recoveryID = id
+        if let cached = await NBABoxScoreStore.shared.cached(gameID: id), !Task.isCancelled {
+            pins.update(summary: cached.summary, gameID: id)
+        }
+        var failed = true
+        var observation: NBAGameObservation?
+        if let entry = try? await NBABoxScoreStore.shared.load(gameID: id), !Task.isCancelled {
+            pins.update(summary: entry.summary, gameID: id)
+            failed = entry.refreshFailed
+            // Do not treat the display snapshot's fallback fields as evidence.
+            if !entry.refreshFailed, !entry.isStale, entry.summary.header?.id == id,
+               let game = pins.selection?.game, let match = entry.summary.match, let status = match.status,
+               let teams = match.competitors, teams.count == 2, let date = match.date,
+               let state = status.type?.state, let completed = status.type?.completed {
+                let freshStatus = Status(displayClock: status.displayClock, period: status.period,
+                    type: type(name: status.type?.name, state: state, completed: completed,
+                               detail: status.type?.detail, shortDetail: status.type?.shortDetail), clock: status.clock)
+                let competitors = teams.map { player in
+                    Competitor(homeAway: player.homeAway, id: player.team.id, score: player.score, order: nil, winner: nil, athlete: nil,
+                        team: Team(id: player.team.id, displayName: player.team.displayName, abbreviation: player.team.abbreviation,
+                                   name: nil, logo: nil, links: [], color: nil, alternateColor: nil))
+                }
+                let competition = Competition(competitors: competitors, status: freshStatus, situation: nil, highlights: nil,
+                                              headlines: nil, details: nil, venue: nil, notes: nil)
+                let freshGame = Event(id: id, date: date, endDate: nil,
+                    name: game.name, shortName: game.shortName, competitions: [competition],
+                    weather: nil, status: freshStatus, links: nil, circuit: nil)
+                observation = NBAGameObservation(game: freshGame, fetchedAt: entry.date)
+            }
+        }
+        guard !Task.isCancelled, currentGameID == id else { return nil }
+        let selection = pins.selection
+        var delay: TimeInterval = selection?.state == "in" ? TimeInterval(refreshSeconds) : 300
+        if selection?.state == "post" { delay = NBABoxScoreStore.completedTTL }
+        if let start = selection.flatMap({ NBASchedulePolicy.startDate($0.date) }),
+           selection?.state == "pre", abs(start.timeIntervalSinceNow) <= 900 { delay = 30 }
+        recoveryAfter = Date().addingTimeInterval(failed ? 60 : delay)
+        return observation
+    }
+
+    private var nextRefreshDelay: TimeInterval {
+        let schedule = nbaVM.scheduleDelay(liveInterval: TimeInterval(refreshSeconds))
+        guard !currentGameID.isEmpty,
+              !nbaVM.knownGames.contains(where: { $0.id == currentGameID }) || nbaVM.errorMessage != nil else { return schedule }
+        return max(1, min(schedule, recoveryAfter.timeIntervalSinceNow))
+    }
+
+    private var refreshSeconds: UInt64 {
+        ScoreRefreshInterval.seconds(for: refreshInterval)
+    }
+
+    private func pin(_ game: Event) {
+        pins.pinManually(game)
     }
 }

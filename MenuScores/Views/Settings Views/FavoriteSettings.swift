@@ -13,106 +13,19 @@ struct FavoritesSettingsView: View {
 
     @AppStorage("autoPinFavorites") private var autoPinFavorites = false
     @AppStorage("autoClearFavorites") private var autoClearFavorites = true
-    @AppStorage("selectedPinType") private var selectedPinType: PinType = .menubar
-    @AppStorage("enableNotch") private var enableNotch = true
-
     @State private var favoriteTeamMessage: String?
 
-    enum PinType: String, CaseIterable, Identifiable {
-        case menubar = "Menubar"
-        case notch = "Notch"
-
-        var id: String { rawValue }
-    }
-
-    // Leagues
-
-    @AppStorage("enableNHL") private var enableNHL = true
-    @AppStorage("enableHNCAAM") private var enableHNCAAM = false
-    @AppStorage("enableHNCAAF") private var enableHNCAAF = false
-
-    @AppStorage("enableNBA") private var enableNBA = true
-    @AppStorage("enableWNBA") private var enableWNBA = false
-    @AppStorage("enableNCAAM") private var enableNCAAM = false
-    @AppStorage("enableNCAAF") private var enableNCAAF = false
-
-    @AppStorage("enableNFL") private var enableNFL = true
-    @AppStorage("enableFNCAA") private var enableFNCAA = false
-
-    @AppStorage("enableMLB") private var enableMLB = true
-    @AppStorage("enableBNCAA") private var enableBNCAA = false
-    @AppStorage("enableSNCAA") private var enableSNCAA = false
-
-    @AppStorage("enableMLS") private var enableMLS = true
-    @AppStorage("enableNWSL") private var enableNWSL = false
-    @AppStorage("enableUEFA") private var enableUEFA = false
-    @AppStorage("enableUEFAN") private var enableUEFAN = false
-    @AppStorage("enableEUEFA") private var enableEUEFA = false
-    @AppStorage("enableWUEFA") private var enableWUEFA = false
-    @AppStorage("enableMEX") private var enableMEX = false
-    @AppStorage("enableFRA") private var enableFRA = false
-    @AppStorage("enableNED") private var enableNED = false
-    @AppStorage("enablePOR") private var enablePOR = false
-    @AppStorage("enableEPL") private var enableEPL = false
-    @AppStorage("enableWEPL") private var enableWEPL = false
-    @AppStorage("enableESP") private var enableESP = false
-    @AppStorage("enableGER") private var enableGER = false
-    @AppStorage("enableITA") private var enableITA = false
-
-    @AppStorage("enableNLL") private var enableNLL = false
-    @AppStorage("enablePLL") private var enablePLL = false
-    @AppStorage("enableLNCAAM") private var enableLNCAAM = false
-    @AppStorage("enableLNCAAF") private var enableLNCAAF = false
-
-    @AppStorage("enableVNCAAM") private var enableVNCAAM = false
-    @AppStorage("enableVNCAAF") private var enableVNCAAF = false
-
-    @AppStorage("enableOMIHC") private var enableOMIHC = false
-    @AppStorage("enableOWIHC") private var enableOWIHC = false
-    @AppStorage("enableOMB") private var enableOMB = false
-    @AppStorage("enableOWB") private var enableOWB = false
-
-    @AppStorage("enableFFWC") private var enableFFWC = false
-    @AppStorage("enableFFWWC") private var enableFFWWC = false
-    @AppStorage("enableFFWCQUEFA") private var enableFFWCQUEFA = false
-    @AppStorage("enableCONCACAF") private var enableCONCACAF = false
-    @AppStorage("enableCONMEBOL") private var enableCONMEBOL = false
-    @AppStorage("enableCAF") private var enableCAF = false
-    @AppStorage("enableAFC") private var enableAFC = false
-    @AppStorage("enableOFC") private var enableOFC = false
-
-    @AppStorage("selectedFavoriteLeague") private var selectedLeague = "NHL"
+    private let selectedLeague = "NBA"
     @State private var searchText = ""
 
     @State private var currentPage = 0
     private let teamsPerPage = 50
 
     private func fallbackLogo(for leagueKey: String) -> String {
-        let sport = (FavoriteTeams.mappings[leagueKey]?.sport ?? "hockey")
-        let league = (FavoriteTeams.mappings[leagueKey]?.league ?? "NHL")
-
-        if sport == "racing" && league == "F1" {
-            return "https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/f1.png&w=100&h=100&transparent=true"
-        } else if sport == "racing" && league != "F1" {
-            return "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-nascar.png&h=80&w=80&scale=crop&cquality=40"
-        } else if sport == "golf" {
-            return "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-golf.png&h=80&w=80&scale=crop&cquality=40"
-        } else if sport == "volleyball" {
-            return "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-all-sports-college.png&w=64&h=64&scale=crop&cquality=40&location=origin"
-        } else {
-            return "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-\(sport).png&h=80&w=80&scale=crop&cquality=40"
-        }
+        FavoriteTeams.fallbackLogoForLeague(leagueKey)
     }
 
     private var filteredTeams: [TeamInfo] {
-        if FavoriteTeams.isLeagueOnly(selectedLeague) {
-            let leagueTeam = FavoriteTeams.leagueAsTeam(for: selectedLeague)
-            if searchText.isEmpty {
-                return [leagueTeam]
-            }
-            return leagueTeam.displayName.localizedCaseInsensitiveContains(searchText) ? [leagueTeam] : []
-        }
-
         let teams = favoritesManager.availableTeams[selectedLeague] ?? []
 
         if searchText.isEmpty {
@@ -120,7 +33,7 @@ struct FavoritesSettingsView: View {
         }
 
         return teams.filter {
-            $0.displayName.localizedCaseInsensitiveContains(searchText)
+            $0.displayName.localizedCaseInsensitiveContains(searchText) || NBAMenuPresentation.teamName($0.abbreviation, fallback: $0.displayName).localizedCaseInsensitiveContains(searchText)
         }
     }
 
@@ -142,12 +55,12 @@ struct FavoritesSettingsView: View {
     var body: some View {
         VStack(spacing: 4) {
             Form {
-                Section("Auto Pin") {
+                Section("自动固定") {
                     Toggle(isOn: $autoPinFavorites) {
                         HStack {
                             Image(systemName: "pin")
                                 .foregroundColor(.primary)
-                            Text("Auto Pin Favorite Team Games")
+                            Text("自动固定关注球队的比赛")
                         }
                     }
 
@@ -155,44 +68,17 @@ struct FavoritesSettingsView: View {
                         HStack {
                             Image(systemName: "checkmark.circle")
                                 .foregroundColor(.primary)
-                            Text("Auto Remove Completed Games")
+                            Text("比赛结束后自动取消固定")
                         }
                     }
                     .disabled(!self.autoPinFavorites)
 
-                    HStack {
-                        Label("Auto Pin Preference", systemImage: "display")
-                            .foregroundColor(.primary)
-                        Spacer()
-                        Picker("", selection: self.$selectedPinType) {
-                            ForEach(PinType.allCases) { key in
-                                Text(key.rawValue).tag(key)
-                            }
-                        }
-                        .pickerStyle(.menu)
-                        .disabled(!self.autoPinFavorites)
-                        .frame(width: 150)
-                    }
 
-                    HStack {
-                        Label("Select League", systemImage: "sportscourt")
-                            .foregroundColor(.primary)
-                        Spacer()
-                        Picker("", selection: $selectedLeague) {
-                            ForEach(FavoriteTeams.supportedLeagueKeys, id: \.self) { league in
-                                Text(FavoriteTeams.displayName(for: league))
-                                    .tag(league)
-                            }
-                        }
-                        .pickerStyle(.menu)
-                        .frame(width: 190)
-                        .disabled(!autoPinFavorites)
-                    }
                 }
 
                 Section {
                     if favoritesManager.favorites.isEmpty {
-                        Text("No teams added.")
+                        Text("尚未关注球队")
                             .foregroundStyle(.secondary)
                     } else {
                         ForEach(Array(favoritesManager.favorites.enumerated()), id: \.element.uniqueID) { index, favorite in
@@ -223,7 +109,7 @@ struct FavoritesSettingsView: View {
                                 }
 
                                 VStack(alignment: .leading) {
-                                    Text(favorite.displayName)
+                                    Text(NBAMenuPresentation.teamName(favorite.abbreviation, fallback: favorite.displayName))
 
                                     Text(FavoriteTeams.isLeagueOnly(favorite.leagueKey)
                                         ? (FavoriteTeams.mappings[favorite.leagueKey]?.sport.capitalized ?? favorite.leagueKey)
@@ -246,7 +132,7 @@ struct FavoritesSettingsView: View {
                                 }
                                 .disabled(index == 0)
                                 .buttonStyle(.plain)
-                                .help("Increase priority")
+                                .help("提高优先级")
 
                                 Button {
                                     withAnimation(.easeInOut(duration: 0.2)) {
@@ -260,7 +146,7 @@ struct FavoritesSettingsView: View {
                                 }
                                 .disabled(index == favoritesManager.favorites.count - 1)
                                 .buttonStyle(.plain)
-                                .help("Decrease priority")
+                                .help("降低优先级")
 
                                 Button {
                                     favoritesManager.favorites.removeAll {
@@ -271,14 +157,14 @@ struct FavoritesSettingsView: View {
                                     Image(systemName: "star.fill")
                                 }
                                 .buttonStyle(.plain)
-                                .help("Remove from favorites")
+                                .help("取消关注")
                             }
                         }
                     }
                 } header: {
                     HStack(spacing: 4) {
                         HStack {
-                            Text("Favorite Teams")
+                            Text("已关注球队")
                                 .font(.headline)
                             Spacer()
 
@@ -289,26 +175,26 @@ struct FavoritesSettingsView: View {
                             }
 
                             Button(action: {
-                                favoriteTeamMessage = "Remove favorite teams before disabling their league."
+                                favoriteTeamMessage = "多场比赛同时进行时，优先显示排序靠前的球队。"
                             }) {
                                 Image(systemName: "exclamationmark.circle")
                             }
                             .controlSize(.small)
                             .buttonStyle(.plain)
                             .foregroundColor(.secondary)
-                            .help("Important!")
+                            .help("优先级说明")
                         }
                     }
                 } footer: {
                     if !favoritesManager.favorites.isEmpty {
-                        Text("Use the arrows to set priority. Higher priority teams take precedence when multiple games are live.")
+                        Text("使用箭头调整优先级；多场比赛同时进行时，优先固定排序靠前的球队。")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
                 }
 
                 Section {
-                    TextField("Search teams...", text: $searchText)
+                    TextField("搜索球队（中文或英文）", text: $searchText)
                         .textFieldStyle(.roundedBorder)
 
                     ZStack {
@@ -341,7 +227,7 @@ struct FavoritesSettingsView: View {
                             favoritesManager.availableTeams[selectedLeague] == nil
                     )
                 } header: {
-                    Text("Teams")
+                    Text("NBA 球队")
                 } footer: {
                     if totalPages > 1 {
                         HStack {
@@ -355,7 +241,7 @@ struct FavoritesSettingsView: View {
 
                             Spacer()
 
-                            Text("Page \(currentPage + 1) of \(totalPages)")
+                            Text("第 \(currentPage + 1) / \(totalPages) 页")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
 
@@ -372,9 +258,7 @@ struct FavoritesSettingsView: View {
                     }
                 }
                 .task(id: selectedLeague) {
-                    if FavoriteTeams.isLeagueOnly(selectedLeague) {
-                        favoritesManager.isLoadingTeams = false
-                    } else if let url = FavoriteTeams.teamsUrl(for: selectedLeague) {
+                    if let url = FavoriteTeams.teamsUrl(for: selectedLeague) {
                         await favoritesManager.loadTeams(
                             for: selectedLeague,
                             url: url
@@ -395,20 +279,7 @@ struct FavoriteTeamRow: View {
     let leagueKey: String
 
     private var fallbackLogo: String {
-        let sport = (FavoriteTeams.mappings[leagueKey]?.sport ?? "hockey")
-        let league = (FavoriteTeams.mappings[leagueKey]?.league ?? "NHL")
-
-        if sport == "racing" && league == "F1" {
-            return "https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/f1.png&w=100&h=100&transparent=true"
-        } else if sport == "racing" && league != "F1" {
-            return "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-nascar.png&h=80&w=80&scale=crop&cquality=40"
-        } else if sport == "golf" {
-            return "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-golf.png&h=80&w=80&scale=crop&cquality=40"
-        } else if sport == "volleyball" {
-            return "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-all-sports-college.png&w=64&h=64&scale=crop&cquality=40&location=origin"
-        } else {
-            return "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-\(sport).png&h=80&w=80&scale=crop&cquality=40"
-        }
+        FavoriteTeams.fallbackLogoForLeague(leagueKey)
     }
 
     var body: some View {
@@ -438,7 +309,7 @@ struct FavoriteTeamRow: View {
                 }
             }
 
-            Text(team.displayName)
+            Text(NBAMenuPresentation.teamName(team.abbreviation, fallback: team.displayName))
 
             Spacer()
 
@@ -453,7 +324,7 @@ struct FavoriteTeamRow: View {
             }
             .padding(.trailing, 15)
             .buttonStyle(.plain)
-            .help("Add to favorites")
+            .help("关注球队")
         }
         .padding(.top, 5)
     }

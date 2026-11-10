@@ -1,0 +1,2 @@
+# Preserve the reference export's original CSV line endings.
+MenuScoresTests/Fixtures/NBA-estimate-v3-reference.csv whitespace=cr-at-eol

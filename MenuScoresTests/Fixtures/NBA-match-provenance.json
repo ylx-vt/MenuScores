@@ -1,0 +1,38 @@
+{
+  "halftime": {
+    "eventID": "401909280",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909280",
+    "cachedAtUTC": "2026-10-31T00:54:49.469686+00:00",
+    "originalSHA256": "448808b2d6c51107b45f0a048956a0a99bc503483ac88c89d3eb3d73abaad8ba",
+    "retainedSections": [
+      "boxscore",
+      "format",
+      "plays",
+      "header"
+    ]
+  },
+  "live": {
+    "eventID": "401909283",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909283",
+    "cachedAtUTC": "2026-10-31T00:56:10.738377+00:00",
+    "originalSHA256": "a68d7a36eedb674be6a16868bdaaa07dbd4ddff60037e77ffefc9df23eea4482",
+    "retainedSections": [
+      "boxscore",
+      "format",
+      "plays",
+      "header"
+    ]
+  },
+  "final": {
+    "eventID": "401909893",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909893",
+    "cachedAtUTC": "2026-10-30T13:40:25.352028+00:00",
+    "originalSHA256": "05613392cf37b841617cf2e4e6285360918621dd0dd6b54f5bdba2fd9d9772ef",
+    "retainedSections": [
+      "boxscore",
+      "format",
+      "plays",
+      "header"
+    ]
+  }
+}

@@ -12,31 +12,30 @@ struct AboutSettingsView: View {
     var body: some View {
         VStack(spacing: 4) {
             Form {
-                Section("Version Info") {
+                Section("版本信息") {
                     HStack {
-                        Text("Version")
+                        Text("版本")
                         Spacer()
 
-                        Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")
+                        Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "未知")
                             .foregroundStyle(.secondary)
                     }
 
                     HStack {
-                        Text("Build Number")
+                        Text("构建号")
                         Spacer()
 
-                        Text(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown")
+                        Text(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "未知")
                             .foregroundStyle(.secondary)
                     }
                 }
 
-                Section("Links") {
+                Section("项目与来源") {
+                    Text("独立维护版 · 菜单栏比分与数据追踪")
+                        .font(.caption).foregroundStyle(.secondary)
                     let links = [
-                        ("MenuScores Help", "https://github.com/daniyalmaster693/MenuScores#usage"),
-                        ("Feedback", "https://github.com/daniyalmaster693/MenuScores/issues/new"),
-                        ("Changelog", "https://github.com/daniyalmaster693/MenuScores/releases"),
-                        ("Website", "https://menuscores.vercel.app"),
-                        ("Repository", "https://github.com/daniyalmaster693/MenuScores")
+                        ("本项目源代码", "https://github.com/ylx-vt/MenuScores"),
+                        ("原项目 · Daniyal Master", "https://github.com/daniyalmaster693/MenuScores")
                     ]
 
                     ForEach(links, id: \.0) { link in
